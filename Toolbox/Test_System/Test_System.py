@@ -148,22 +148,18 @@ class Test_System(frmTSForm):
         # Running - Blue
         self._prop_running = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
         self._prop_running.Alignment.Horz = 'taCenter'
-        self._prop_running.Font.Color = 0xFF0000  # Blue in BGR format
 
         # Passed - Green
         self._prop_passed = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
         self._prop_passed.Alignment.Horz = 'taCenter'
-        self._prop_passed.Font.Color = 0x008000  # Green in BGR format
 
         # Failed - Red
         self._prop_failed = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
         self._prop_failed.Alignment.Horz = 'taCenter'
-        self._prop_failed.Font.Color = 0x0000FF  # Red in BGR format
 
         # No Case - Orange (warning)
         self._prop_no_case = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
         self._prop_no_case.Alignment.Horz = 'taCenter'
-        self._prop_no_case.Font.Color = 0x0080FF  # Orange in BGR format
 
         # --- Helper functions ---
         def _set_node_result(node, result_text, prop):
