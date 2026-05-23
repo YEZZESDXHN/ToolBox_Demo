@@ -140,7 +140,7 @@ class Test_System(frmTSForm):
                                 pass
                 except:
                     pass  # Skip modules that cause errors
-            self.log("Initialized " + str(len(self._available_funcs)) + " test functions from modules: " + str([k for k, v in self._available_funcs.values()]))
+            self.log("Initialized " + str(len(self._available_funcs)) + " test functions")
 
         # --- Column setup ---
         # Enable check groups for checkboxes
