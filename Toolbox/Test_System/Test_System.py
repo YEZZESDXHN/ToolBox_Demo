@@ -1,6 +1,5 @@
 ﻿import sys
 import json
-import importlib
 import queue
 from time import sleep
 from threading import Thread
@@ -15,6 +14,8 @@ from TSMaster import *
 if app.is_tsmaster_host(): # only vaid in TSMaster App
     import TSMaster.lib_demo2 as lib_demo2
     import TSMaster.lib_demo as lib_demo
+    import TSMaster.my_mp as my_mp
+    
 
 
 blacklist = ["tkinter"] # modules such as tkinter will release GIL by itself, which is not allowed in TSMster Toolbox
@@ -24,8 +25,7 @@ for mod in blacklist:
         sys.modules[mod] = None
 
 # print("test system")
-# sleep(3)
-# lib_demo.lib_test_1(10, 20)
+# my_mp.my_func_1()
 # print("test system test")
 
 
@@ -119,6 +119,7 @@ class Test_System(frmTSForm):
 # Auto Generated Python Code, do not modify END [UI] ----------------
         # your init code starts here...
         self._case_map = {}
+        self._next_case_id = 0
         self._result_queue = queue.Queue()
         self._is_running = False
 
@@ -153,14 +154,6 @@ class Test_System(frmTSForm):
             cs = node.CheckState
             return cs == 'cbsChecked' or cs == 1
 
-        def _find_case_by_name(name):
-            node = self.TSTreelist.TopNode
-            while node is not None:
-                if not node.HasChildren and node.GetValue(0) == name:
-                    return node
-                node = node.GetNext()
-            return None
-
         # --- UIRefreshEvent: main-thread callback to apply queued results ---
         self.FNeedRefresh = True
 
@@ -169,12 +162,12 @@ class Test_System(frmTSForm):
                 return
             while True:
                 try:
-                    case_name, result = self._result_queue.get_nowait()
+                    case_id, result = self._result_queue.get_nowait()
                 except queue.Empty:
                     break
-                node = _find_case_by_name(case_name)
-                if node is not None:
-                    _set_result(node, result)
+                entry = self._case_map.get(case_id)
+                if entry is not None:
+                    _set_result(entry[2], result)
             self.FNeedRefresh = False
 
         self.OnRefreshEvent = _ui_refresh_event
@@ -197,6 +190,7 @@ class Test_System(frmTSForm):
 
             self.TSTreelist.Clear()
             self._case_map.clear()
+            self._next_case_id = 0
 
             for suite in config.get('test_suites', []):
                 suite_node = self.TSTreelist.Add()
@@ -209,7 +203,9 @@ class Test_System(frmTSForm):
                     case_node.CheckState = 'cbsUnChecked'
                     case_node.SetValue(0, case['case_name'])
                     _set_result(case_node, 'Not Run')
-                    self._case_map[case['case_name']] = (case['library'], case['function'])
+                    case_id = self._next_case_id
+                    self._next_case_id += 1
+                    self._case_map[case_id] = (case['library'], case['function'], case_node)
 
             self.TSTreelist.FullExpand()
 
@@ -222,16 +218,9 @@ class Test_System(frmTSForm):
 
             # Collect checked leaf nodes in main thread (safe VCL access)
             checked = []
-            node = self.TSTreelist.TopNode
-            while node is not None:
-                if not node.HasChildren and _is_checked(node):
-                    case_name = node.GetValue(0)
-                    info = self._case_map.get(case_name)
-                    if info is not None:
-                        checked.append((case_name, info[0], info[1]))
-                    else:
-                        _set_result(node, 'No Case')
-                node = node.GetNext()
+            for case_id, (lib, func_name, node) in self._case_map.items():
+                if _is_checked(node):
+                    checked.append((case_id, lib, func_name))
 
             if not checked:
                 return
@@ -239,18 +228,21 @@ class Test_System(frmTSForm):
             self._is_running = True
 
             def run_tests():
-                for case_name, lib, func_name in checked:
-                    self._result_queue.put((case_name, 'Running'))
+                for case_id, lib, func_name in checked:
+                    self._result_queue.put((case_id, 'Running'))
                     self.FNeedRefresh = True
                     try:
-                        mod = importlib.import_module(f'TSMaster.{lib}')
+                        mod = sys.modules.get(f'TSMaster.{lib}') or sys.modules.get(lib)
+                        if mod is None:
+                            self._result_queue.put((case_id, 'No Case'))
+                            continue
                         func = getattr(mod, func_name)
                         func()
-                        self._result_queue.put((case_name, 'Passed'))
+                        self._result_queue.put((case_id, 'Passed'))
                     except (ModuleNotFoundError, AttributeError):
-                        self._result_queue.put((case_name, 'No Case'))
+                        self._result_queue.put((case_id, 'No Case'))
                     except Exception:
-                        self._result_queue.put((case_name, 'Failed'))
+                        self._result_queue.put((case_id, 'Failed'))
                     self.FNeedRefresh = True
                 self._is_running = False
 
