@@ -1,0 +1,45 @@
+# TSMaster 项目文件
+*.mp
+*.mp64
+*.~*
+*.blf
+*.asc
+*.mat
+*.mdf
+*.mf4
+*.dll
+*.exe
+*.o
+*.dres
+*.pch
+*.ipch
+*.pyc
+*.bak
+
+# TSMaster 临时文件
+*.TSProj
+*.TSProj_x64
+*.TSProj_x86
+*.TSUI.~*
+
+# 目录
+temp/
+Logging/
+backup/
+*_mbdprj/
+.claude/
+
+# MiniProgram 相关
+/Language/
+/MiniProgram/Conf/
+/MiniProgram/h/TSMaster.h
+/MiniProgram/MpGen/
+/MiniProgram/Build/
+
+# Windows 系统文件
+desktop.ini
+Thumbs.db
+ehthumbs.db
+
+# 日志文件
+*.log

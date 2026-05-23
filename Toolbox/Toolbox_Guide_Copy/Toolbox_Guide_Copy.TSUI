@@ -1,0 +1,6463 @@
+object frmVCLFormDesigner_1: TfrmVCLFormDesigner
+  Left = 15
+  Top = 13
+  ActiveControl = pgFeatures
+  Caption = ' [*Toolbox_Guide_Copy.TSUI]'
+  ClientHeight = 508
+  ClientWidth = 1395
+  Color = clBtnFace
+  DoubleBuffered = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesigned
+  Visible = True
+  Maintainer = 'Link'
+  TextHeight = 15
+  object splitMM: TSplitter
+    Left = 0
+    Top = 378
+    Width = 1395
+    Height = 5
+    Cursor = crArrow
+    Align = alBottom
+    AutoSnap = False
+  end
+  object MM: TMemo
+    Left = 0
+    Top = 383
+    Width = 1395
+    Height = 125
+    Cursor = crArrow
+    Align = alBottom
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 1
+  end
+  object pgFeatures: TPageControl
+    Left = 0
+    Top = 0
+    Width = 1395
+    Height = 378
+    Cursor = crArrow
+    ActivePage = shtForm
+    Align = alClient
+    MultiLine = True
+    TabOrder = 0
+    object shtForm: TTabSheet
+      Cursor = crArrow
+      Caption = 'Form'
+      object grpFormProperties: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alLeft
+        Caption = 'Form Properties'
+        TabOrder = 0
+        ExplicitHeight = 331
+        object btnMoveLeft: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Move Left (Left = Left - 10)'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnMoveRight: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Move Right (Left = Left + 10)'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnHide: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Hide 3s then Show'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnSetCaption: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Caption = current timestamp'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnGetCaption: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Get Caption'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnGetHandle: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Get Form Handle'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnTriggerSysVarChange: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Trigger On System Var Change Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+      end
+      object grpFormApis: TGroupBox
+        Left = 264
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alLeft
+        Caption = 'Form APIs'
+        TabOrder = 1
+        ExplicitHeight = 331
+        object btnLog: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Log events in different colors'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnToolbar: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Register toolbar buttons'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSaveConfiguration: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Save Configurations for Left and Top'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnLoadConfiguration: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Load Configurations for Left and Top'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnClearConf: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Clear Configurations'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetConfiguration: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Configuration "x = 123"'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnGetConfiguration: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Get Configuration "x"'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnIsConfLoaded: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Is Configuration Loaded ?'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnRegOnSysVarChange: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Register On System Var Change Event'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnImageList: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 24
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Custom Image List Usage'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+      end
+      object grpTools: TGroupBox
+        Left = 528
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alLeft
+        Caption = 'Tools'
+        TabOrder = 2
+        ExplicitHeight = 331
+        object btnPopup: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Popup Menu...'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnCreateForm: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Dynamic Create a Config Form'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnListControls: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'List Controls'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtLabel: TTabSheet
+      Cursor = crArrow
+      Caption = 'Label'
+      object lblLabel: TLabel
+        Left = 48
+        Top = 32
+        Width = 103
+        Height = 15
+        Cursor = crArrow
+        Caption = 'This is a demo label'
+      end
+      object grpLabel: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetLabelBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnSetLabelTransparency: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Label Transparency'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetLabelCaption: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Caption'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSetLabelBackColor: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Background Color'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnToggleLabelAutoSize: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Label Auto Size'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetLabelFont: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Font'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnToggleLabelEnabled: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Label Enabled'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnToggleLabelVisible: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Label Visible'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnSetLabelAlign: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Align'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnSetLabelAlignment: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Text Alignment'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnSetLabelMargins: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label Margins'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnSetLabelOnClickEvent: TButton
+          Left = 2
+          Top = 292
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Label On Click Event'
+          TabOrder = 11
+          ExplicitLeft = 1
+          ExplicitTop = 293
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtButton: TTabSheet
+      Cursor = crArrow
+      Caption = 'Button'
+      object grpButton: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetButtonBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetButtonCaption: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button Caption'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSetButtonFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleButtonEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Button Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleButtonVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Button Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetButtonAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSetButtonMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetButtonOnClickEvent: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button On Click Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnSetButtonImage: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Button Image'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+      end
+      object btnButton: TButton
+        Left = 64
+        Top = 64
+        Width = 96
+        Height = 25
+        Cursor = crArrow
+        Caption = 'Demo Button'
+        TabOrder = 1
+      end
+    end
+    object shtEdit: TTabSheet
+      Cursor = crArrow
+      Caption = 'Edit'
+      object grpEdit: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetEditBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetEditText: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Text'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSetEditFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleEditEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Edit Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleEditVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Edit Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetEditAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetEditMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnSetEditClickEvent: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit On Click Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnSetEditReadOnly: TButton
+          Left = 2
+          Top = 317
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Read Only'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 318
+          ExplicitWidth = 262
+        end
+        object btnSetEditTextAlignment: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Text Alignment'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSetEditTextHint: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Text Hint'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnSetEditNumbersOnly: TButton
+          Left = 2
+          Top = 292
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit Numbers Only'
+          TabOrder = 11
+          ExplicitLeft = 1
+          ExplicitTop = 293
+          ExplicitWidth = 262
+        end
+        object btnSetOnEditChangeEvent: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Edit On Change Event'
+          TabOrder = 12
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+      end
+      object edtEdit: TEdit
+        Left = 80
+        Top = 48
+        Width = 121
+        Height = 23
+        Cursor = crArrow
+        TabOrder = 1
+        Text = 'Edit'
+      end
+    end
+    object shtCheckBox: TTabSheet
+      Cursor = crArrow
+      Caption = 'Check Box'
+      object grpCheckbox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetCheckboxBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetCheckboxText: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Checkbox Text'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSetCheckboxFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Checkbox Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleCheckboxEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checkbox Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleCheckboxVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checkbox Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetCheckboxAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Checkbox Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSetCheckboxMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Checkbox Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetCheckboxOnClickEvent: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Click Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnToggleCheckboxChecked: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checked State'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+      end
+      object chkCheckbox: TCheckBox
+        Left = 88
+        Top = 48
+        Width = 232
+        Height = 17
+        Cursor = crArrow
+        Caption = 'Checkbox'
+        TabOrder = 1
+      end
+    end
+    object shtRadioButton: TTabSheet
+      Cursor = crArrow
+      Caption = 'Radio Button'
+      object grpRadioButton: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetRadioButtonBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetRadioButtonText: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Text'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSetRadioButtonFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleRadioButtonEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleRadioButtonVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetRadioButtonAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSetRadioButtonMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetRadioButtonOnChangeEvent: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Change Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnToggleRadioButtonCheckedState: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checked State'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+      end
+      object rb1: TRadioButton
+        Left = 56
+        Top = 48
+        Width = 200
+        Height = 17
+        Cursor = crArrow
+        Caption = 'Radio Button 1'
+        TabOrder = 1
+      end
+      object rb2: TRadioButton
+        Left = 56
+        Top = 72
+        Width = 200
+        Height = 17
+        Cursor = crArrow
+        Caption = 'Radio Button 2'
+        TabOrder = 2
+      end
+    end
+    object shtMemo: TTabSheet
+      Cursor = crArrow
+      Caption = 'Memo'
+      object grpMemo: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSetMemoBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSetMemoText: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Text'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSetMemoFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleMemoEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleMemoVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSetMemoAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSetMemoMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetMemoOnChangeEvent: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Change Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+      end
+      object mmMemo: TMemo
+        Left = 48
+        Top = 64
+        Width = 304
+        Height = 192
+        Cursor = crArrow
+        Lines.Strings = (
+          'Memo')
+        TabOrder = 1
+      end
+    end
+    object shtComboBox: TTabSheet
+      Cursor = crArrow
+      Caption = 'Combo Box'
+      object grpComboBox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnComboSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnComboSetText: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Items'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnComboSetFont: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnComboToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnComboToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnComboSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnComboSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnComboSetOnChangeEvent: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Change Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnComboSetItemIndex: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Item Index'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnComboGetItemIndex: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Get Item Index'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+      object cbCombo: TComboBox
+        Left = 128
+        Top = 88
+        Width = 145
+        Height = 33
+        Cursor = crArrow
+        Style = csDropDownList
+        ItemIndex = 0
+        TabOrder = 1
+        Text = 'sel 1'
+        Items.Strings = (
+          'sel 1'
+          'sel 2'
+          'sel 3')
+      end
+    end
+    object shtListBox: TTabSheet
+      Cursor = crArrow
+      Caption = 'List Box'
+      object grpListBox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnListBoxSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetItems: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Items'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetFont: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnListBoxToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnListBoxToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetOnChangeEvent: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Change Event'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnListBoxSetItemIndex: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Item Index'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnListBoxGetItemIndex: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Get Item Index'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+      object lstListBox: TListBox
+        Left = 72
+        Top = 64
+        Width = 121
+        Height = 97
+        Cursor = crArrow
+        ItemHeight = 15
+        Items.Strings = (
+          'str 1'
+          'str 2'
+          'str 3')
+        TabOrder = 1
+      end
+    end
+    object shtStaticText: TTabSheet
+      Cursor = crArrow
+      Caption = 'Static Text'
+      object stStaticText: TStaticText
+        Left = 88
+        Top = 96
+        Width = 64
+        Height = 19
+        Cursor = crArrow
+        Caption = 'stStaticText'
+        TabOrder = 0
+      end
+      object grpStaticText: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnStaticTextSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnStaticTextToggleTransparency: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Transparency'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetCaption: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Caption'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetBorderStyle: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Border Style'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnStaticTextToggleAutoSize: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Auto Size'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetFont: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnStaticTextToggleEnabled: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnStaticTextToggleVisible: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetAlign: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetAlignment: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Text Alignment'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetMargins: TButton
+          Left = 2
+          Top = 292
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 293
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetClickEvent: TButton
+          Left = 2
+          Top = 317
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Click Event'
+          TabOrder = 11
+          ExplicitLeft = 1
+          ExplicitTop = 318
+          ExplicitWidth = 262
+        end
+        object btnStaticTextSetBkgdColor: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Background Color'
+          TabOrder = 12
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtGroupBox: TTabSheet
+      Cursor = crArrow
+      Caption = 'Group Box'
+      object grpGroupBox2: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnGroupBoxSetBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxSetCaption: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Caption'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxSetFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxSetAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxSetMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnGroupBoxToggleFrame: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Show Frame'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+      end
+      object grpGroupBox: TGroupBox
+        Left = 64
+        Top = 48
+        Width = 192
+        Height = 120
+        Cursor = crArrow
+        Caption = 'Group Box as a container'
+        TabOrder = 1
+      end
+    end
+    object shtPanel: TTabSheet
+      Cursor = crArrow
+      Caption = 'Panel'
+      object pnlPanel: TPanel
+        Left = 72
+        Top = 48
+        Width = 272
+        Height = 176
+        Cursor = crArrow
+        Caption = 'Panel as a container'
+        TabOrder = 0
+      end
+      object grpPanel: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnPanelSetBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnPanelSetCaption: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Caption'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnPanelSetFont: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnPanelToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnPanelToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnPanelSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnPanelSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnPanelSetBevel: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bevel'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnPanelSetBorderStyle: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Border Style'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtRadioGroup: TTabSheet
+      Cursor = crArrow
+      Caption = 'Radio Group'
+      object grpRadioGroup: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnRadioGroupSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetCaption: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Caption'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetFont: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Font'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetItems: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Items'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnRadioGroupSetItemIndex: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Item Index'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSetRadioGroupOnClick: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Click Event'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+      end
+      object rgRadioGroup: TRadioGroup
+        Left = 56
+        Top = 56
+        Width = 312
+        Height = 184
+        Cursor = crArrow
+        Caption = 'Radio Group contains radio buttons'
+        ItemIndex = 0
+        Items.Strings = (
+          'radio button 1'
+          'radio button 2')
+        TabOrder = 1
+      end
+    end
+    object shtShape: TTabSheet
+      Cursor = crArrow
+      Caption = 'Shape'
+      object spShape: TShape
+        Left = 120
+        Top = 88
+        Width = 65
+        Height = 65
+        Cursor = crArrow
+      end
+      object grpShape: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnShapeSetBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnShapeToggleEnabled: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnShapeToggleVisible: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnShapeSetAlign: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnShapeSetMargins: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnShapeSetShape: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Shape'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtScrollBar: TTabSheet
+      Cursor = crArrow
+      Caption = 'Scroll Bar'
+      object grpScrollBar: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnScrollBarSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnScrollBarToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnScrollBarToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetMinMax: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Min Max'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetChange: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Small and Large Change'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetPosition: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Position'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetOnChangeEvent: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set On Change Event'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnScrollBarSetDirection: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Direction'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+      object sbScrollBar: TScrollBar
+        Left = 48
+        Top = 56
+        Width = 192
+        Height = 24
+        Cursor = crArrow
+        PageSize = 0
+        TabOrder = 1
+      end
+    end
+    object shtDateTimePicker: TTabSheet
+      Cursor = crArrow
+      Caption = 'Date Time Picker'
+      object grpDateTimePicker: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnDateTimePickerSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetDate: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Date'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetDateFormat: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Date Format'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetKind: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Kind'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnDateTimePickerSetTime: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Time'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+      object dtpDateTimePicker: TDateTimePicker
+        Left = 48
+        Top = 56
+        Width = 186
+        Height = 23
+        Cursor = crArrow
+        Date = 44992.00000000000000000
+        Time = 0.71205076389014720
+        TabOrder = 1
+      end
+    end
+    object shtPageControl: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Page Control'
+      object pcPageControl: TPageControl
+        Left = 136
+        Top = 64
+        Width = 289
+        Height = 193
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        ActivePage = TabSheet41
+        Images = dmIcons.imgLstSmall
+        TabOrder = 0
+        object TabSheet41: TTabSheet
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Caption = 'Sheet 1'
+        end
+        object TabSheet42: TTabSheet
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Caption = 'Sheet 2'
+        end
+      end
+      object grpPageControl: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnPageControlToggleEnabled: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnPageControlToggleVisible: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetTabPosition: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set TabPosition'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetOwnerDraw: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set OwnerDraw'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetStyle: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Style'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnPageControlSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtTrackBar: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Track Bar'
+      object tbTrackBar: TTrackBar
+        Left = 136
+        Top = 120
+        Width = 150
+        Height = 45
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+        ThumbLength = 25
+      end
+      object grpTrackBar: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnTrackBarSetBounds: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnTrackBarToggleEnabled: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnTrackBarToggleVisible: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetAlign: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetMargins: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetSliderVisible: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set SliderVisible'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetOrientation: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Orientation'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetShowSelRange: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ShowSelRange'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetTickStyle: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set TickStyle'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnTrackBarSetTickMarks: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set TickMarks'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtStatusBar: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Status Bar'
+      object sbStatusBar: TStatusBar
+        Left = 0
+        Top = 0
+        Width = 328
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alLeft
+        Panels = <>
+        ExplicitHeight = 331
+      end
+      object grpStatusBar: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnStatusBarSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnStatusBarToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnStatusBarToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetSimplePanel: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set SimplePanel'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetBorderWidth: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderWidth'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetcolor: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set color'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnStatusBarSetSimpleText: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set SimpleText'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtPaintBox: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Paint Box'
+      object PaintBox: TPaintBox
+        Left = 168
+        Top = 88
+        Width = 105
+        Height = 105
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+      end
+      object grpPaintBox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnPaintBoxSetBounds: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnPaintBoxToggleEnabled: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnPaintBoxToggleVisible: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnPaintBoxSetAlign: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnPaintBoxSetMargins: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtImage: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Image'
+      object iImage: TImage
+        Left = 136
+        Top = 80
+        Width = 105
+        Height = 105
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+      end
+      object grpImage: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnImageToggleEnabled: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnImageToggleVisible: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnImageSetAlign: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnImageSetMargins: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnImageSetPicture: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Picture'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnImageSetBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtBevel: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Bevel'
+      object bBevel: TBevel
+        Left = 184
+        Top = 88
+        Width = 50
+        Height = 50
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+      end
+      object grpBevel: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnBevelSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnBevelToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnBevelToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnBevelSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnBevelSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnBevelSetStyle: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Style'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnBevelSetShape: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Shape'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtTabControl: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Tab Control'
+      object tcTabControl: TTabControl
+        Left = 160
+        Top = 88
+        Width = 289
+        Height = 193
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+      end
+      object grpTabControl: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnTabControlSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnTabControlToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnTabControlToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnTabControlSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnTabControlSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnTabControlSetOwnerDraw: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set OwnerDraw'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnTabControlSetStyle: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Style'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtProgressBar: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Progress Bar'
+      object pbProgressBar: TProgressBar
+        Left = 176
+        Top = 72
+        Width = 150
+        Height = 21
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+      end
+      object grpProgressBar: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnProgressBarToggleEnabled: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnProgressBarToggleVisible: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetState: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set State'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetBorderWidth: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderWidth'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetStyle: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Style'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnProgressBarSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtHeader: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Header'
+      object hHeader: THeader
+        Left = 192
+        Top = 96
+        Width = 250
+        Height = 25
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+      end
+      object grpHeader: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnHeaderSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnHeaderToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnHeaderToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnHeaderSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnHeaderSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnHeaderSetBorderStyle: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderStyle'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnHeaderSetSections: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Sections'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtSplitter: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Splitter'
+      object sSplitter: TSplitter
+        Left = 0
+        Top = 0
+        Width = 200
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        ExplicitHeight = 331
+      end
+      object grpSplitter: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSplitterSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSplitterToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnSplitterToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSplitterSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSplitterSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSplitterSetBeveled: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Beveled'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSplitterSetColor: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtControlBar: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Control Bar'
+      object cbControlBar: TControlBar
+        Left = 224
+        Top = 72
+        Width = 100
+        Height = 50
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        RowSize = 33
+        TabOrder = 0
+      end
+      object grpControlBar: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnControlBarSetBounds: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnControlBarToggleEnabled: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnControlBarToggleVisible: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetAlign: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetMargins: TButton
+          Left = 2
+          Top = 292
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 293
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetBevelKind: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetPicture: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Picture'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetBevelInner: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelInner'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetAutoSize: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set AutoSize'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetColor: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetBorderWidth: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set BorderWidth'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnControlBarSetBevelOuter: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set BevelOuter'
+          TabOrder = 11
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtBoundLabel: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Bound Label'
+      object grpBoundLabel: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnBoundLabelSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object Button271: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnBoundLabelSetMargins: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnBoundLabelSetColor: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnBoundLabelSetLayout: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Layout'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnBoundLabelSetTransparent: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Transparent'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtLabeledEdit: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Labeled Edit'
+      object leLabeledEdit: TLabeledEdit
+        Left = 160
+        Top = 96
+        Width = 121
+        Height = 23
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        EditLabel.Width = 3
+        EditLabel.Height = 15
+        EditLabel.Margins.Left = 4
+        EditLabel.Margins.Top = 4
+        EditLabel.Margins.Right = 4
+        EditLabel.Margins.Bottom = 4
+        TabOrder = 0
+        Text = 'leLabeledEdit'
+      end
+      object grpLabeledEdit: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnLabeledEditSetBounds: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditToggleEnabled: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditToggleVisible: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetAlign: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetMargins: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetColor: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetBorderStyle: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderStyle'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetCharCase: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set CharCase'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetText: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Text'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetBevelKind: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnLabeledEditSetAlignment: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set Alignment'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtColorBox: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Color Box'
+      object ColorBox: TColorBox
+        Left = 144
+        Top = 96
+        Width = 145
+        Height = 36
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        ItemHeight = 20
+        TabOrder = 0
+      end
+      object grpColorBox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnColorBoxSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnColorBoxToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnColorBoxToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetColor: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetBevelKind: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetBiDiMode: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BiDiMode'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnColorBoxSetSelected: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Selected'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtSpeedButton: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Speed Button'
+      object SpeedButton: TTSSpeedButton
+        Left = 280
+        Top = 128
+        Width = 136
+        Height = 32
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'SpeedButton'
+        Images = dmIcons.imgLstSmall
+      end
+      object grpSpeedButton: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSpeedButtonSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonToggleEnabled: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonToggleVisible: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonSetAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonSetMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonSetLayout: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Layout'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonSetGlyph: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Glyph'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSpeedButtonSetFlat: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Flat'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtBitBtn: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Bit Btn'
+      object grpBitBtn: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnBitBtnSetBounds: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnBitBtnToggleEnabled: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnBitBtnToggleVisible: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnBitBtnSetAlign: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnBitBtnSetMargins: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnBitBtnSetGlyph: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Glyph'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnBitBtnSetKind: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Kind'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnBitBtnSetDefault: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Align = alTop
+          Caption = 'Set Default'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+      object bbBitBtn: TTSBitBtn
+        Left = 264
+        Top = 96
+        Width = 136
+        Height = 40
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'BitBtn'
+        Images = dmIcons.imgLstSmall
+        TabOrder = 1
+      end
+    end
+    object shtDrawGrid: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Draw Grid'
+      object dgDrawGrid: TDrawGrid
+        Left = 10
+        Top = 10
+        Width = 520
+        Height = 320
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        DefaultColWidth = 80
+        TabOrder = 0
+      end
+      object grpDrawGrid: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnDrawGridSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnDrawGridToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnDrawGridToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetBorderStyle: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderStyle'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetBevelKind: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetBiDiMode: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BiDiMode'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnDrawGridSetScrollBars: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ScrollBars'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtStringGrid: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'String Grid'
+      object sgStringGrid: TStringGrid
+        Left = 160
+        Top = 80
+        Width = 320
+        Height = 120
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        DefaultColWidth = 80
+        DefaultRowHeight = 30
+        TabOrder = 0
+      end
+      object GroupBox42: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnStringGridSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnStringGridToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnStringGridToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetBorderStyle: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderStyle'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetBevelKind: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetBiDiMode: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BiDiMode'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnStringGridSetScrollBars: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ScrollBars'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtSpinEdit: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Spin Edit'
+      object seSpinEdit: TSpinEdit
+        Left = 208
+        Top = 96
+        Width = 121
+        Height = 24
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 0
+        Value = 0
+      end
+      object grpSpinEdit: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnSpinEditSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSpinEditToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnSpinEditToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnSpinEditSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnSpinEditSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSpinEditSetColor: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnSpinEditSetCtl3D: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Ctl3D'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtToggleSwitch: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Toggle Switch'
+      object tgToggleSwitch: TToggleSwitch
+        Left = 136
+        Top = 80
+        Width = 86
+        Height = 25
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        SwitchHeight = 25
+        SwitchWidth = 63
+        TabOrder = 0
+        ThumbWidth = 19
+      end
+      object grpToggleSwitch: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnToggleSwitchSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchSetAlignment: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Alignment'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnToggleSwitchSetColor: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtNumberBox: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Number Box'
+      object nbNumberBox: TNumberBox
+        Left = 168
+        Top = 88
+        Width = 121
+        Height = 23
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+        SpinButtonOptions.ButtonWidth = 21
+      end
+      object grpNumberBox: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnNumberBoxSetBounds: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxToggleEnabled: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxToggleVisible: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetMargins: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetColor: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetBorderStyle: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BorderStyle'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetBiDiMode: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BiDiMode'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnNumberBoxSetDisplayFormat: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set DisplayFormat'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtMediaPlayer: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Media Player'
+      object mpMediaPlayer: TMediaPlayer
+        Left = 248
+        Top = 112
+        Width = 253
+        Height = 30
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        TabOrder = 0
+      end
+      object GroupBox40: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnMediaPlayerSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerToggleEnabled: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerToggleVisible: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerSetAlign: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerSetMargins: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerSetAutoEnable: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set AutoEnable'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnMediaPlayerSetFileName: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set FileName'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtImageButton: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Image Button'
+      object ibImageButton: TTSSvgImageButton
+        Left = 192
+        Top = 96
+        Width = 185
+        Height = 41
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Image Button'
+        ShowCaption = False
+        TabOrder = 0
+        ImageIndex = 34
+        ImageStretch = False
+        ReadOnly = False
+      end
+      object grpImageButton: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnImageButtonSetBevelInner: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelInner'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetBevelKind: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set BevelKind'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetBounds: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetBevelOuter: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bevel Outer'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnImageButtonToggleEnabled: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 9
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnImageButtonToggleVisible: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetImageStretch: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ImageStretch'
+          TabOrder = 10
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetAlign: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetShowCaption: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ShowCaption'
+          TabOrder = 11
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetMargins: TButton
+          Left = 2
+          Top = 242
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 243
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetColor: TButton
+          Left = 2
+          Top = 267
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 268
+          ExplicitWidth = 262
+        end
+        object btnImageButtonSetParentBackground: TButton
+          Left = 2
+          Top = 292
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set ParentBackground'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 293
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtActivityIndicator: TTabSheet
+      Cursor = crArrow
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Activity Indicator'
+      object pcPageControl2: TPageControl
+        Left = 384
+        Top = 88
+        Width = 289
+        Height = 193
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        ActivePage = TabSheet44
+        Images = dmIcons.imgLstSmall
+        TabOrder = 0
+        object TabSheet44: TTabSheet
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Caption = 'Sheet 1'
+          object aiActivityIndicator: TActivityIndicator
+            Left = 96
+            Top = 64
+            Cursor = crArrow
+            Margins.Left = 4
+            Margins.Top = 4
+            Margins.Right = 4
+            Margins.Bottom = 4
+          end
+        end
+        object TabSheet45: TTabSheet
+          Cursor = crArrow
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Caption = 'Sheet 2'
+        end
+      end
+      object grpActivityIndicator: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 1
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnActivityIndicatorSetBounds: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnActivityIndicatorSetAlign: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnActivityIndicatorSetMargins: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnActivityIndicatorSetIndicatorSize: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set IndicatorSize'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+      end
+    end
+    object shtTreeView: TTabSheet
+      Cursor = crArrow
+      Caption = 'TreeView'
+      object GroupBox44: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnTreeViewBounds: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Bounds for Left, Top, Width and Height'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnTreeViewEnabled: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Enabled'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnTreeViewVisible: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Visible'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnTreeViewAlign: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Align'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnTreeViewChecked: TButton
+          Left = 2
+          Top = 217
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checked'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 218
+          ExplicitWidth = 262
+        end
+        object btnTreeViewMargins: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Margins'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnTreeViewColor: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Set Color'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnTreeViewImageIndex: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle ImageIndex'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnTreeViewCheckbox: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Align = alTop
+          Caption = 'Toggle Checkbox'
+          TabOrder = 8
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+      end
+      object trv: TTreeView
+        Left = 48
+        Top = 24
+        Width = 328
+        Height = 248
+        Cursor = crArrow
+        Indent = 19
+        TabOrder = 1
+      end
+    end
+    object shtTreeList: TTabSheet
+      Cursor = crArrow
+      Caption = 'Tree List'
+      object GroupBox45: TGroupBox
+        Left = 1123
+        Top = 0
+        Width = 264
+        Height = 308
+        Cursor = crArrow
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Align = alRight
+        Caption = 'Control Usages'
+        TabOrder = 0
+        ExplicitLeft = 1126
+        ExplicitHeight = 331
+        object btnAddNode: TButton
+          Left = 2
+          Top = 17
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Add Nodes'
+          TabOrder = 5
+          ExplicitLeft = 1
+          ExplicitTop = 18
+          ExplicitWidth = 262
+        end
+        object btnAddSubNodes: TButton
+          Left = 2
+          Top = 42
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Add Sub Nodes'
+          TabOrder = 6
+          ExplicitLeft = 1
+          ExplicitTop = 43
+          ExplicitWidth = 262
+        end
+        object btnGetValue: TButton
+          Left = 2
+          Top = 67
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Get Value'
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 68
+          ExplicitWidth = 262
+        end
+        object btnSetValue: TButton
+          Left = 2
+          Top = 92
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Set Value'
+          TabOrder = 1
+          ExplicitLeft = 1
+          ExplicitTop = 93
+          ExplicitWidth = 262
+        end
+        object btnCollapseAll: TButton
+          Left = 2
+          Top = 117
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Collapse All'
+          TabOrder = 2
+          ExplicitLeft = 1
+          ExplicitTop = 118
+          ExplicitWidth = 262
+        end
+        object btnExpandAll: TButton
+          Left = 2
+          Top = 142
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Expand All'
+          TabOrder = 3
+          ExplicitLeft = 1
+          ExplicitTop = 143
+          ExplicitWidth = 262
+        end
+        object btnChangeImageIdx: TButton
+          Left = 2
+          Top = 167
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Change ImageIndex'
+          TabOrder = 4
+          ExplicitLeft = 1
+          ExplicitTop = 168
+          ExplicitWidth = 262
+        end
+        object btnSetColumn: TButton
+          Left = 2
+          Top = 192
+          Width = 260
+          Height = 25
+          Cursor = crArrow
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Caption = 'Set Column'
+          TabOrder = 7
+          ExplicitLeft = 1
+          ExplicitTop = 193
+          ExplicitWidth = 262
+        end
+      end
+      object TSTreelist1: TTSTreelist
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 1117
+        Height = 302
+        Cursor = crArrow
+        Align = alClient
+        Images = dmIcons.imgLstSmall
+        Navigator.Buttons.CustomButtons = <>
+        OptionsBehavior.CellHints = True
+        OptionsCustomizing.ColumnVertSizing = False
+        OptionsSelection.MultiSelect = True
+        OptionsView.ColumnAutoWidth = True
+        ScrollbarAnnotations.CustomAnnotations = <>
+        TabOrder = 1
+        ExplicitWidth = 1120
+        ExplicitHeight = 325
+        object TSTreelist1Column1: TcxTreeListColumn
+          PropertiesClassName = 'TcxImageComboBoxProperties'
+          Caption.AlignHorz = taCenter
+          Caption.Text = 'Image Column'
+          MinWidth = 13
+          Options.VertSizing = False
+          Width = 67
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          Position.BandIndex = 0
+          Summary.FooterSummaryItems = <>
+          Summary.GroupFooterSummaryItems = <>
+        end
+        object TSTreelist1Column2: TcxTreeListColumn
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Properties.ImmediatePost = True
+          Caption.AlignHorz = taCenter
+          Caption.Text = 'Check Box Column'
+          MinWidth = 13
+          Options.VertSizing = False
+          Width = 67
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+          Position.BandIndex = 0
+          Summary.FooterSummaryItems = <>
+          Summary.GroupFooterSummaryItems = <>
+        end
+        object TSTreelist1Column3: TcxTreeListColumn
+          PropertiesClassName = 'TcxTextEditProperties'
+          Properties.UseLeftAlignmentOnEditing = False
+          Caption.AlignHorz = taCenter
+          Caption.Text = 'Text Edit Column'
+          MinWidth = 13
+          Options.VertSizing = False
+          Width = 67
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+          Position.BandIndex = 0
+          Summary.FooterSummaryItems = <>
+          Summary.GroupFooterSummaryItems = <>
+        end
+      end
+    end
+  end
+end
