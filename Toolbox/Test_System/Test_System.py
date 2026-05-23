@@ -180,19 +180,18 @@ class Test_System(frmTSForm):
                 suite_node.CheckGroupType = 'ncgCheckGroup'
                 suite_node.SetValue(0, suite.get("suite_name", "Unnamed Suite"))
                 suite_node.SetValue(1, "")
+                suite_node.CheckState = 'cbsUnChecked'
 
                 for case in suite.get("cases", []):
                     child_node = suite_node.AddChild()
-                    child_node.CheckGroupType = 'ncgCheckGroup'
                     child_node.SetValue(0, case.get("case_name", "Unnamed Case"))
                     child_node.SetValue(1, "Not Run")
+                    child_node.CheckState = 'cbsUnChecked'
 
-                    # Store function mapping using node id
+                    # Store function mapping using node index
                     lib_name = case.get("library", "")
                     func_name = case.get("function", "")
-                    node_id = id(child_node)
-                    self._node_func_map[node_id] = (lib_name, func_name)
-                    self.log("Mapped node " + str(node_id) + " -> " + lib_name + "." + func_name)
+                    self._node_func_map[child_node.Index] = (lib_name, func_name)
 
                     self._leaf_nodes.append(child_node)
 
@@ -229,15 +228,15 @@ class Test_System(frmTSForm):
                 case_name = node.GetValue(0)
 
                 # Get library and function from node_func_map
-                node_id = id(node)
-                lib_name, func_name = self._node_func_map.get(node_id, ("", ""))
+                node_key = node.Index
+                lib_name, func_name = self._node_func_map.get(node_key, ("", ""))
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
                 _set_node_result(node, "Running")
 
                 if not lib_name or not func_name:
                     _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name + " (node_id: " + str(node_id) + ")")
+                    self.log_error("  No function mapped for: " + case_name + " (index: " + str(node_key) + ")")
                     self.log_error("  Available mappings: " + str(list(self._node_func_map.keys())))
                     no_case += 1
                     continue
@@ -304,6 +303,12 @@ class Test_System(frmTSForm):
                 parent.CheckState = 'cbsChecked'
             else:
                 parent.CheckState = 'cbsUnChecked'
+
+        def _set_children_check_state(parent_node, check_state):
+            """Set all children check state"""
+            for leaf in self._leaf_nodes:
+                if leaf.Parent == parent_node:
+                    leaf.CheckState = check_state
 
         def _set_children_check_state(parent_node, check_state):
             """Set all children check state"""
