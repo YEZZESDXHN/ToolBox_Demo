@@ -324,6 +324,8 @@ class Test_System(frmTSForm):
                 return
             self._updating_check = True
             try:
+                node_name = ANode.GetValue(0) if ANode.GetValue(0) else "Unknown"
+                self.log("Check changed: " + node_name + " -> " + str(AState))
                 if ANode.Level == 0:
                     # Parent node: sync all children
                     if AState == 'cbsChecked':
