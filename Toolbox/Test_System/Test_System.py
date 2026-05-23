@@ -132,12 +132,15 @@ class Test_System(frmTSForm):
                 try:
                     for attr_name in dir(module):
                         if attr_name.startswith("lib_test_"):
-                            attr = getattr(module, attr_name, None)
-                            if attr and callable(attr):
-                                self._available_funcs[attr_name] = (lib_name, attr)
+                            try:
+                                attr = getattr(module, attr_name, None)
+                                if attr and callable(attr):
+                                    self._available_funcs[attr_name] = (lib_name, attr)
+                            except:
+                                pass
                 except:
                     pass  # Skip modules that cause errors
-            self.log("Initialized " + str(len(self._available_funcs)) + " test functions")
+            self.log("Initialized " + str(len(self._available_funcs)) + " test functions from modules: " + str([k for k, v in self._available_funcs.values()]))
 
         # --- Column setup ---
         # Enable check groups for checkboxes
@@ -274,15 +277,15 @@ class Test_System(frmTSForm):
             if parent is None or parent == self.TSTreelist.Root:
                 return
 
-            # Count checked children using Items property
+            # Find all leaf nodes with the same parent
             all_checked = True
             any_checked = False
-            for i in range(parent.Count):
-                child = parent.Items[i]
-                if child.CheckState == 'cbsChecked':
-                    any_checked = True
-                else:
-                    all_checked = False
+            for leaf in self._leaf_nodes:
+                if leaf.Parent == parent:
+                    if leaf.CheckState == 'cbsChecked':
+                        any_checked = True
+                    else:
+                        all_checked = False
 
             # Update parent state
             if all_checked:
@@ -295,9 +298,9 @@ class Test_System(frmTSForm):
 
         def _set_children_check_state(parent_node, check_state):
             """Set all children check state"""
-            for i in range(parent_node.Count):
-                child = parent_node.Items[i]
-                child.CheckState = check_state
+            for leaf in self._leaf_nodes:
+                if leaf.Parent == parent_node:
+                    leaf.CheckState = check_state
 
         # --- Event bindings ---
         def on_load_json_click(sender):
