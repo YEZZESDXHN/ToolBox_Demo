@@ -1,7 +1,9 @@
 ﻿import sys
 import json
 import importlib
+import queue
 from time import sleep
+from threading import Thread
 
 from TSMaster import *
 # if app.is_tsmaster_host(): # only vaid in TSMaster App
@@ -117,6 +119,8 @@ class Test_System(frmTSForm):
 # Auto Generated Python Code, do not modify END [UI] ----------------
         # your init code starts here...
         self._case_map = {}
+        self._result_queue = queue.Queue()
+        self._is_running = False
 
         # --- Column 0: Case Name (read-only label) ---
         self.TSTreelist_Col0 = self.TSTreelist.CreateColumn(None)
@@ -130,7 +134,7 @@ class Test_System(frmTSForm):
         self.TSTreelist_Col0.Position.RowIndex = 0
         self.TSTreelist_Col0.Position.BandIndex = 0
 
-        # --- Column 1: Result (read-only label, with color) ---
+        # --- Column 1: Result (read-only label) ---
         self.TSTreelist_Col1 = self.TSTreelist.CreateColumn(None)
         self.TSTreelist_Col1.PropertiesClassName = 'TcxLabelProperties'
         self.TSTreelist_Col1.Caption.AlignHorz = "taCenter"
@@ -144,6 +148,32 @@ class Test_System(frmTSForm):
 
         def _set_result(node, result):
             node.SetValue(1, result)
+
+        def _find_node_by_index(idx):
+            node = self.TSTreelist.TopNode
+            while node is not None:
+                if node.Index == idx:
+                    return node
+                node = node.GetNext()
+            return None
+
+        # --- UIRefreshEvent: main-thread callback to apply queued results ---
+        self.FNeedRefresh = True
+
+        def _ui_refresh_event():
+            if not self.FNeedRefresh:
+                return
+            while True:
+                try:
+                    node_index, result = self._result_queue.get_nowait()
+                except queue.Empty:
+                    break
+                node = _find_node_by_index(node_index)
+                if node is not None:
+                    _set_result(node, result)
+            self.FNeedRefresh = False
+
+        self.OnRefreshEvent = _ui_refresh_event
 
         self.TSTreelist.OptionsView.CheckGroups = True
         self.TSTreelist.Root.CheckGroupType = 'ncgCheckGroup'
@@ -186,26 +216,47 @@ class Test_System(frmTSForm):
 
         # --- Button: Start ---
         def on_start_click(sender):
+            if self._is_running:
+                return
+
+            # Collect checked leaf nodes in main thread (safe VCL access)
+            checked = []
             node = self.TSTreelist.TopNode
             while node is not None:
-                if not node.HasChildren:
-                    if node.CheckState == 'cbsChecked':
-                        info = self._case_map.get(node.Index)
-                        if info is None:
-                            _set_result(node, 'No Case')
-                            node = node.GetNext()
-                            continue
-                        _set_result(node, 'Running')
-                        try:
-                            mod = importlib.import_module(f'TSMaster.{info["library"]}')
-                            func = getattr(mod, info['function'])
-                            func()
-                            _set_result(node, 'Passed')
-                        except (ModuleNotFoundError, AttributeError):
-                            _set_result(node, 'No Case')
-                        except Exception:
-                            _set_result(node, 'Failed')
+                if not node.HasChildren and node.CheckState == 'cbsChecked':
+                    info = self._case_map.get(node.Index)
+                    if info is not None:
+                        checked.append((node.Index, info['library'], info['function']))
+                    else:
+                        _set_result(node, 'No Case')
                 node = node.GetNext()
+
+            if not checked:
+                return
+
+            self._is_running = True
+            for idx, lib, func_name in checked:
+                node = _find_node_by_index(idx)
+                if node is not None:
+                    _set_result(node, 'Running')
+
+            def run_tests():
+                for idx, lib, func_name in checked:
+                    try:
+                        mod = importlib.import_module(f'TSMaster.{lib}')
+                        func = getattr(mod, func_name)
+                        func()
+                        self._result_queue.put((idx, 'Passed'))
+                    except (ModuleNotFoundError, AttributeError):
+                        self._result_queue.put((idx, 'No Case'))
+                    except Exception:
+                        self._result_queue.put((idx, 'Failed'))
+                    self.FNeedRefresh = True
+                self._is_running = False
+
+            thread = Thread(target=run_tests)
+            thread.daemon = True
+            thread.start()
 
         self.Button_Start.OnClick = on_start_click
 
