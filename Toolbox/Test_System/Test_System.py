@@ -181,13 +181,12 @@ class Test_System(frmTSForm):
                 suite_node.CheckGroupType = 'ncgCheckGroup'
                 suite_node.SetValue(0, suite.get("suite_name", "Unnamed Suite"))
                 suite_node.SetValue(1, "")
-                suite_node.CheckState = 'cbsUnChecked'
 
                 for case in suite.get("cases", []):
                     child_node = suite_node.AddChild()
+                    child_node.CheckGroupType = 'ncgCheckGroup'
                     child_node.SetValue(0, case.get("case_name", "Unnamed Case"))
                     child_node.SetValue(1, "Not Run")
-                    child_node.CheckState = 'cbsUnChecked'
 
                     # Store function mapping using counter as key
                     lib_name = case.get("library", "")
