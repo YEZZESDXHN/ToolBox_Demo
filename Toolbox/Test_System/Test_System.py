@@ -1,16 +1,30 @@
-﻿from TSMaster import *
-import sys
+﻿from time import sleep
+
+from TSMaster import *
+# if app.is_tsmaster_host(): # only vaid in TSMaster App
+#     app.import_mini_program_header("lib_demo2")
+#     globals()["lib_demo2"] = sys.modules.get("lib_demo2")
+#     app.import_mini_program_header("lib_demo")
+#     globals()["lib_demo"] = sys.modules.get("lib_demo")
+
 if app.is_tsmaster_host(): # only vaid in TSMaster App
-    app.import_mini_program_header("lib_demo")
-    globals()["lib_demo"] = sys.modules.get("lib_demo")
-    app.import_mini_program_header("lib_demo2")
-    globals()["lib_demo2"] = sys.modules.get("lib_demo2")
+    import TSMaster.lib_demo2 as lib_demo2
+    import TSMaster.lib_demo as lib_demo
+
 
 blacklist = ["tkinter"] # modules such as tkinter will release GIL by itself, which is not allowed in TSMster Toolbox
 for mod in blacklist:
     if sys.modules.get(mod):
         tmp_import = __import__ (mod)
         sys.modules[mod] = None
+
+print("test system")
+sleep(3)
+lib_demo.lib_test_1(10, 20)
+print("test system test")
+
+
+
 
 # Auto Generated Python Code, do not modify START [UI] --------------
 class Test_System(frmTSForm):
@@ -110,7 +124,8 @@ class Test_System(frmTSForm):
         # --- Initialize available functions from imported libraries ---
         def _init_available_funcs():
             """Collect all available functions from lib_demo and lib_demo2"""
-            libs = ["lib_demo", "lib_demo2"]
+            # Try both module name formats
+            libs = ["TSMaster.lib_demo", "TSMaster.lib_demo2", "lib_demo", "lib_demo2"]
             for lib_name in libs:
                 module = sys.modules.get(lib_name)
                 if module is not None:
@@ -257,11 +272,11 @@ class Test_System(frmTSForm):
             if parent is None or parent == self.TSTreelist.Root:
                 return
 
-            # Count checked children
+            # Count checked children using Items property
             all_checked = True
             any_checked = False
             for i in range(parent.Count):
-                child = parent[i]
+                child = parent.Items[i]
                 if child.CheckState == 'cbsChecked':
                     any_checked = True
                 else:
@@ -279,7 +294,7 @@ class Test_System(frmTSForm):
         def _set_children_check_state(parent_node, check_state):
             """Set all children check state"""
             for i in range(parent_node.Count):
-                child = parent_node[i]
+                child = parent_node.Items[i]
                 child.CheckState = check_state
 
         # --- Event bindings ---
