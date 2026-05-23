@@ -123,18 +123,20 @@ class Test_System(frmTSForm):
 
         # --- Initialize available functions from imported libraries ---
         def _init_available_funcs():
-            """Collect all available functions from lib_demo and lib_demo2"""
-            # Try both module name formats
-            libs = ["TSMaster.lib_demo", "TSMaster.lib_demo2", "lib_demo", "lib_demo2"]
-            for lib_name in libs:
-                module = sys.modules.get(lib_name)
-                if module is not None:
-                    # Get all callable attributes from the module
+            """Collect all available functions from all imported modules"""
+            # Scan all loaded modules for lib_test_* functions
+            for lib_name, module in sys.modules.items():
+                if module is None:
+                    continue
+                # Look for functions starting with lib_test_
+                try:
                     for attr_name in dir(module):
                         if attr_name.startswith("lib_test_"):
                             attr = getattr(module, attr_name, None)
                             if attr and callable(attr):
                                 self._available_funcs[attr_name] = (lib_name, attr)
+                except:
+                    pass  # Skip modules that cause errors
             self.log("Initialized " + str(len(self._available_funcs)) + " test functions")
 
         # --- Column setup ---
