@@ -123,16 +123,23 @@ class Test_System(frmTSForm):
             self.log("Initialized " + str(len(self._available_funcs)) + " test functions")
 
         # --- Column setup ---
-        # Column 0: Case Name
+        # Enable check groups for checkboxes
+        self.TSTreelist.OptionsView.CheckGroups = True
+
+        # Column 0: Case Name (read-only)
         self._col_case_name = self.TSTreelist.CreateColumn(None)
         self._col_case_name.Caption.Text = "Case Name"
+        self._col_case_name.PropertiesClassName = 'TcxTextEditProperties'
+        self._col_case_name.Options.Editing = False
         self._col_case_name.Position.ColIndex = 0
         self._col_case_name.Position.RowIndex = 0
         self._col_case_name.Position.BandIndex = 0
 
-        # Column 1: Result
+        # Column 1: Result (read-only)
         self._col_result = self.TSTreelist.CreateColumn(None)
         self._col_result.Caption.Text = "Result"
+        self._col_result.PropertiesClassName = 'TcxTextEditProperties'
+        self._col_result.Options.Editing = False
         self._col_result.Position.ColIndex = 1
         self._col_result.Position.RowIndex = 0
         self._col_result.Position.BandIndex = 0
@@ -140,32 +147,10 @@ class Test_System(frmTSForm):
         # Enable root check group
         self.TSTreelist.Root.CheckGroupType = 'ncgCheckGroup'
 
-        # --- Create result property objects for coloring ---
-        # Default (Not Run) - Gray
-        self._prop_not_run = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
-        self._prop_not_run.Alignment.Horz = 'taCenter'
-
-        # Running - Blue
-        self._prop_running = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
-        self._prop_running.Alignment.Horz = 'taCenter'
-
-        # Passed - Green
-        self._prop_passed = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
-        self._prop_passed.Alignment.Horz = 'taCenter'
-
-        # Failed - Red
-        self._prop_failed = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
-        self._prop_failed.Alignment.Horz = 'taCenter'
-
-        # No Case - Orange (warning)
-        self._prop_no_case = self.TSTreelist.CreateEditProperties('TcxLabelProperties')
-        self._prop_no_case.Alignment.Horz = 'taCenter'
-
         # --- Helper functions ---
-        def _set_node_result(node, result_text, prop):
-            """Set result text on a node's result column with color"""
+        def _set_node_result(node, result_text):
+            """Set result text on a node's result column"""
             node.SetValue(1, result_text)
-            self._col_result.SetNodeProperties(node, prop)
 
         def _load_json_to_treelist(json_path):
             """Load JSON file and populate TSTreelist"""
@@ -188,14 +173,12 @@ class Test_System(frmTSForm):
                 suite_node.CheckGroupType = 'ncgCheckGroup'
                 suite_node.SetValue(0, suite.get("suite_name", "Unnamed Suite"))
                 suite_node.SetValue(1, "")
-                self._col_result.SetNodeProperties(suite_node, self._prop_not_run)
 
                 for case in suite.get("cases", []):
                     child_node = suite_node.AddChild()
                     child_node.CheckGroupType = 'ncgCheckGroup'
                     child_node.SetValue(0, case.get("case_name", "Unnamed Case"))
                     child_node.SetValue(1, "Not Run")
-                    self._col_result.SetNodeProperties(child_node, self._prop_not_run)
 
                     self._leaf_nodes.append(child_node)
 
@@ -246,10 +229,10 @@ class Test_System(frmTSForm):
                             break
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
-                _set_node_result(node, "Running", self._prop_running)
+                _set_node_result(node, "Running")
 
                 if func_name is None:
-                    _set_node_result(node, "No Case", self._prop_no_case)
+                    _set_node_result(node, "No Case")
                     self.log_error("  No function mapped for: " + case_name)
                     no_case += 1
                     continue
@@ -257,11 +240,11 @@ class Test_System(frmTSForm):
                 lib_name, func = self._available_funcs[func_name]
                 try:
                     func()
-                    _set_node_result(node, "Passed", self._prop_passed)
+                    _set_node_result(node, "Passed")
                     self.log_ok("  PASSED: " + case_name)
                     passed += 1
                 except Exception as e:
-                    _set_node_result(node, "Failed", self._prop_failed)
+                    _set_node_result(node, "Failed")
                     self.log_error("  FAILED: " + case_name + " - " + str(e))
                     failed += 1
 
