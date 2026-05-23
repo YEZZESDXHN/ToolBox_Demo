@@ -118,6 +118,7 @@ class Test_System(frmTSForm):
             self.EndUIAutoCreation()
 # Auto Generated Python Code, do not modify END [UI] ----------------
         # your init code starts here...
+        self._case_map = {}
         self._result_queue = queue.Queue()
         self._is_running = False
 
@@ -147,6 +148,10 @@ class Test_System(frmTSForm):
 
         def _set_result(node, result):
             node.SetValue(1, result)
+
+        def _is_checked(node):
+            cs = node.CheckState
+            return cs == 'cbsChecked' or cs == 1
 
         def _find_case_by_index(idx):
             node = self.TSTreelist.TopNode
@@ -191,6 +196,7 @@ class Test_System(frmTSForm):
                 return
 
             self.TSTreelist.Clear()
+            self._case_map.clear()
 
             for suite in config.get('test_suites', []):
                 suite_node = self.TSTreelist.Add()
@@ -203,8 +209,7 @@ class Test_System(frmTSForm):
                     case_node.CheckState = 'cbsUnChecked'
                     case_node.SetValue(0, case['case_name'])
                     _set_result(case_node, 'Not Run')
-                    case_node._lib = case['library']
-                    case_node._func = case['function']
+                    self._case_map[case_node.Index] = (case['library'], case['function'])
 
             self.TSTreelist.FullExpand()
 
@@ -219,11 +224,10 @@ class Test_System(frmTSForm):
             checked = []
             node = self.TSTreelist.TopNode
             while node is not None:
-                if not node.HasChildren and node.CheckState == 'cbsChecked':
-                    lib = getattr(node, '_lib', None)
-                    func_name = getattr(node, '_func', None)
-                    if lib is not None and func_name is not None:
-                        checked.append((node.Index, lib, func_name))
+                if not node.HasChildren and _is_checked(node):
+                    info = self._case_map.get(node.Index)
+                    if info is not None:
+                        checked.append((node.Index, info[0], info[1]))
                     else:
                         _set_result(node, 'No Case')
                 node = node.GetNext()
