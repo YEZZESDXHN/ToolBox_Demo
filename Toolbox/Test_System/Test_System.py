@@ -1,4 +1,6 @@
 ﻿import sys
+import json
+import importlib
 from time import sleep
 
 from TSMaster import *
@@ -114,247 +116,99 @@ class Test_System(frmTSForm):
             self.EndUIAutoCreation()
 # Auto Generated Python Code, do not modify END [UI] ----------------
         # your init code starts here...
-        import json
-        import os
+        self._case_map = {}
 
-        # --- Data structures ---
-        self._leaf_nodes = []       # list of leaf nodes for traversal
-        self._is_running = False    # guard against double-click during test
-        self._loaded_modules = {}   # module_name -> module_object
-        self._node_func_map = {}    # node_id -> (library, function)
-        self._updating_check = False  # guard against recursive check events
+        # --- Column 0: Case Name (read-only label) ---
+        self.TSTreelist_Col0 = self.TSTreelist.CreateColumn(None)
+        self.TSTreelist_Col0.PropertiesClassName = 'TcxLabelProperties'
+        self.TSTreelist_Col0.Caption.AlignHorz = "taCenter"
+        self.TSTreelist_Col0.Caption.Text = 'Case Name'
+        self.TSTreelist_Col0.MinWidth = 13
+        self.TSTreelist_Col0.Options.VertSizing = False
+        self.TSTreelist_Col0.Width = 250
+        self.TSTreelist_Col0.Position.ColIndex = 0
+        self.TSTreelist_Col0.Position.RowIndex = 0
+        self.TSTreelist_Col0.Position.BandIndex = 0
 
-        # --- Initialize available modules ---
-        def _init_loaded_modules():
-            """Discover all loaded modules"""
-            for module_name, module in sys.modules.items():
-                if module is not None:
-                    self._loaded_modules[module_name] = module
-            self.log("Discovered " + str(len(self._loaded_modules)) + " loaded modules")
+        # --- Column 1: Result (read-only label, with color) ---
+        self.TSTreelist_Col1 = self.TSTreelist.CreateColumn(None)
+        self.TSTreelist_Col1.PropertiesClassName = 'TcxLabelProperties'
+        self.TSTreelist_Col1.Caption.AlignHorz = "taCenter"
+        self.TSTreelist_Col1.Caption.Text = 'Result'
+        self.TSTreelist_Col1.MinWidth = 13
+        self.TSTreelist_Col1.Options.VertSizing = False
+        self.TSTreelist_Col1.Width = 120
+        self.TSTreelist_Col1.Position.ColIndex = 1
+        self.TSTreelist_Col1.Position.RowIndex = 0
+        self.TSTreelist_Col1.Position.BandIndex = 0
 
-        # --- Column setup ---
-        # Enable check groups for checkboxes
+        def _set_result(node, result):
+            node.SetValue(1, result)
+
         self.TSTreelist.OptionsView.CheckGroups = True
-
-        # Column 0: Case Name
-        self._col_case_name = self.TSTreelist.CreateColumn(None)
-        self._col_case_name.Caption.Text = "Case Name"
-        self._col_case_name.Position.ColIndex = 0
-        self._col_case_name.Position.RowIndex = 0
-        self._col_case_name.Position.BandIndex = 0
-
-        # Column 1: Result
-        self._col_result = self.TSTreelist.CreateColumn(None)
-        self._col_result.Caption.Text = "Result"
-        self._col_result.Position.ColIndex = 1
-        self._col_result.Position.RowIndex = 0
-        self._col_result.Position.BandIndex = 0
-
-        # Enable root check group
         self.TSTreelist.Root.CheckGroupType = 'ncgCheckGroup'
 
-        # --- Helper functions ---
-        def _set_node_result(node, result_text):
-            """Set result text on a node's result column"""
-            node.SetValue(1, result_text)
-
-        def _load_json_to_treelist(json_path):
-            """Load JSON file and populate TSTreelist"""
-            # Clear existing state
-            self._leaf_nodes.clear()
-            self._node_func_map.clear()
-
-            if not os.path.exists(json_path):
-                self.log_error("JSON file not found: " + json_path)
-                return False
-
-            try:
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-            except Exception as e:
-                self.log_error("Failed to parse JSON: " + str(e))
-                return False
-
-            node_counter = 0
-            for suite in data.get("test_suites", []):
-                suite_node = self.TSTreelist.Add()
-                suite_node.CheckGroupType = 'ncgCheckGroup'
-                suite_node.SetValue(0, suite.get("suite_name", "Unnamed Suite"))
-                suite_node.SetValue(1, "")
-
-                for case in suite.get("cases", []):
-                    child_node = suite_node.AddChild()
-                    child_node.CheckGroupType = 'ncgCheckGroup'
-                    child_node.SetValue(0, case.get("case_name", "Unnamed Case"))
-                    child_node.SetValue(1, "Not Run")
-
-                    # Store function mapping using counter as key
-                    lib_name = case.get("library", "")
-                    func_name = case.get("function", "")
-                    self._node_func_map[node_counter] = (lib_name, func_name)
-
-                    self._leaf_nodes.append(child_node)
-                    node_counter += 1
-
-            self.TSTreelist.FullExpand()
-            self.log_ok("Loaded " + str(len(self._leaf_nodes)) + " test cases from JSON")
-            return True
-
-        def _run_selected_tests():
-            """Execute all checked test cases sequentially"""
-            if self._is_running:
-                self.log_warning("Test is already running")
-                return
-            self._is_running = True
-
-            checked_cases = []
-            for node in self._leaf_nodes:
-                # CheckState can be string or int: 1 or 'cbsChecked' means checked
-                is_checked = (node.CheckState == 1) or (node.CheckState == 'cbsChecked')
-                if is_checked:
-                    checked_cases.append(node)
-
-            if not checked_cases:
-                self.log_warning("No test cases selected")
-                self._is_running = False
-                return
-
-            total = len(checked_cases)
-            passed = 0
-            failed = 0
-            no_case = 0
-            self.log("Starting test execution: " + str(total) + " cases selected")
-
-            for i, node in enumerate(checked_cases):
-                case_name = node.GetValue(0)
-
-                # Get library and function from node_func_map using leaf_nodes index
-                node_idx = self._leaf_nodes.index(node) if node in self._leaf_nodes else -1
-                lib_name, func_name = self._node_func_map.get(node_idx, ("", ""))
-
-                self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
-                _set_node_result(node, "Running")
-
-                if not lib_name or not func_name:
-                    _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name + " (leaf_idx: " + str(node_idx) + ")")
-                    self.log_error("  Available mappings: " + str(list(self._node_func_map.keys())))
-                    no_case += 1
-                    continue
-
-                # Find module - try exact match first, then partial match
-                module = self._loaded_modules.get(lib_name)
-                if module is None:
-                    # Try partial match
-                    for mod_name, mod in self._loaded_modules.items():
-                        if lib_name in mod_name or mod_name.endswith("." + lib_name):
-                            module = mod
-                            break
-
-                if module is None:
-                    _set_node_result(node, "No Case")
-                    self.log_error("  Module not found: " + lib_name + " for " + case_name)
-                    no_case += 1
-                    continue
-
-                # Get function from module
-                func = getattr(module, func_name, None)
-                if func is None or not callable(func):
-                    _set_node_result(node, "No Case")
-                    self.log_error("  Function not found: " + func_name + " in " + lib_name)
-                    no_case += 1
-                    continue
-
-                try:
-                    func()
-                    _set_node_result(node, "Passed")
-                    self.log_ok("  PASSED: " + case_name)
-                    passed += 1
-                except Exception as e:
-                    _set_node_result(node, "Failed")
-                    self.log_error("  FAILED: " + case_name + " - " + str(e))
-                    failed += 1
-
-            self.log("Test execution complete: " + str(passed) + " passed, " + str(failed) + " failed, " + str(no_case) + " no case, " + str(total) + " total")
-            self._is_running = False
-
-        def _update_parent_check_state(node):
-            """Update parent node check state based on children"""
-            parent = node.Parent
-            if parent is None or parent == self.TSTreelist.Root:
-                return
-
-            # Find all leaf nodes with the same parent
-            all_checked = True
-            any_checked = False
-            for leaf in self._leaf_nodes:
-                if leaf.Parent == parent:
-                    # CheckState can be string or int: 1 or 'cbsChecked' means checked
-                    is_checked = (leaf.CheckState == 1) or (leaf.CheckState == 'cbsChecked')
-                    if is_checked:
-                        any_checked = True
-                    else:
-                        all_checked = False
-
-            # Update parent state
-            if all_checked:
-                parent.CheckState = 'cbsChecked'
-            elif any_checked:
-                # Keep parent checked if any child is checked
-                parent.CheckState = 'cbsChecked'
-            else:
-                parent.CheckState = 'cbsUnChecked'
-
-        def _set_children_check_state(parent_node, check_state):
-            """Set all children check state"""
-            for leaf in self._leaf_nodes:
-                if leaf.Parent == parent_node:
-                    leaf.CheckState = check_state
-
-        def _set_children_check_state(parent_node, check_state):
-            """Set all children check state"""
-            for leaf in self._leaf_nodes:
-                if leaf.Parent == parent_node:
-                    leaf.CheckState = check_state
-
-        # --- Event bindings ---
+        # --- Button: Load JSON ---
         def on_load_json_click(sender):
             json_path = self.Edit_JSONPath.Text.strip()
             if not json_path:
-                self.log_error("Please enter a JSON file path")
+                ShowMessage('Please enter JSON file path')
                 return
-            _load_json_to_treelist(json_path)
-
-        def on_start_click(sender):
-            _run_selected_tests()
-
-        def on_node_check_changed(ATreeList, ANode, AState):
-            """Handle node check state changes for parent-child synchronization"""
-            # Guard against recursive calls
-            if self._updating_check:
-                return
-            self._updating_check = True
             try:
-                # AState: 0=unchecked, 1=checked, 2=grayed
-                is_checked = (AState == 1) or (AState == 'cbsChecked')
-                if ANode.Level == 0:
-                    # Parent node: sync all children
-                    if is_checked:
-                        _set_children_check_state(ANode, 'cbsChecked')
-                    else:
-                        _set_children_check_state(ANode, 'cbsUnChecked')
-                else:
-                    # Child node: update parent
-                    _update_parent_check_state(ANode)
-            finally:
-                self._updating_check = False
+                with open(json_path, 'r', encoding='utf-8') as f:
+                    config = json.load(f)
+            except Exception as e:
+                ShowMessage(f'Failed to load JSON: {e}')
+                return
+
+            self.TSTreelist.Clear()
+            self._case_map.clear()
+
+            for suite in config.get('test_suites', []):
+                suite_node = self.TSTreelist.Add()
+                suite_node.CheckGroupType = 'ncgCheckGroup'
+                suite_node.SetValue(0, suite['suite_name'])
+                suite_node.SetValue(1, '')
+
+                for case in suite.get('cases', []):
+                    case_node = suite_node.AddChild()
+                    case_node.CheckState = 'cbsUnChecked'
+                    case_node.SetValue(0, case['case_name'])
+                    _set_result(case_node, 'Not Run')
+                    self._case_map[case_node.Index] = {
+                        'library': case['library'],
+                        'function': case['function'],
+                    }
+
+            self.TSTreelist.FullExpand()
 
         self.Button_LoadJSON.OnClick = on_load_json_click
-        self.Button_Start.OnClick = on_start_click
-        self.TSTreelist.OnNodeCheckChanged = on_node_check_changed
 
-        # Initialize modules on startup
-        _init_loaded_modules()
+        # --- Button: Start ---
+        def on_start_click(sender):
+            node = self.TSTreelist.TopNode
+            while node is not None:
+                if not node.HasChildren:
+                    if node.CheckState == 'cbsChecked':
+                        info = self._case_map.get(node.Index)
+                        if info is None:
+                            _set_result(node, 'No Case')
+                            node = node.GetNext()
+                            continue
+                        _set_result(node, 'Running')
+                        try:
+                            mod = importlib.import_module(f'TSMaster.{info["library"]}')
+                            func = getattr(mod, info['function'])
+                            func()
+                            _set_result(node, 'Passed')
+                        except (ModuleNotFoundError, AttributeError):
+                            _set_result(node, 'No Case')
+                        except Exception:
+                            _set_result(node, 'Failed')
+                node = node.GetNext()
+
+        self.Button_Start.OnClick = on_start_click
+
 # Auto Generated Python Code, do not modify START [MAIN] ------------
 if __name__ == "__main__":
     try:
