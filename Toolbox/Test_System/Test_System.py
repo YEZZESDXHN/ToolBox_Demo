@@ -194,7 +194,9 @@ class Test_System(frmTSForm):
                     # Store function mapping using node id
                     lib_name = case.get("library", "")
                     func_name = case.get("function", "")
-                    self._node_func_map[id(child_node)] = (lib_name, func_name)
+                    node_id = id(child_node)
+                    self._node_func_map[node_id] = (lib_name, func_name)
+                    self.log("Mapped node " + str(node_id) + " -> " + lib_name + "." + func_name)
 
                     self._leaf_nodes.append(child_node)
 
@@ -231,14 +233,16 @@ class Test_System(frmTSForm):
                 case_name = node.GetValue(0)
 
                 # Get library and function from node_func_map
-                lib_name, func_name = self._node_func_map.get(id(node), ("", ""))
+                node_id = id(node)
+                lib_name, func_name = self._node_func_map.get(node_id, ("", ""))
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
                 _set_node_result(node, "Running")
 
                 if not lib_name or not func_name:
                     _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name)
+                    self.log_error("  No function mapped for: " + case_name + " (node_id: " + str(node_id) + ")")
+                    self.log_error("  Available mappings: " + str(list(self._node_func_map.keys())))
                     no_case += 1
                     continue
 
