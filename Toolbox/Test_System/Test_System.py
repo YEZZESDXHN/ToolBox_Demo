@@ -121,6 +121,7 @@ class Test_System(frmTSForm):
         self._is_running = False    # guard against double-click during test
         self._loaded_modules = {}   # module_name -> module_object
         self._node_func_map = {}    # node_id -> (library, function)
+        self._updating_check = False  # guard against recursive check events
 
         # --- Initialize available modules ---
         def _init_loaded_modules():
@@ -318,15 +319,22 @@ class Test_System(frmTSForm):
 
         def on_node_check_changed(ATreeList, ANode, AState):
             """Handle node check state changes for parent-child synchronization"""
-            if ANode.Level == 0:
-                # Parent node: sync all children
-                if AState == 'cbsChecked':
-                    _set_children_check_state(ANode, 'cbsChecked')
+            # Guard against recursive calls
+            if self._updating_check:
+                return
+            self._updating_check = True
+            try:
+                if ANode.Level == 0:
+                    # Parent node: sync all children
+                    if AState == 'cbsChecked':
+                        _set_children_check_state(ANode, 'cbsChecked')
+                    else:
+                        _set_children_check_state(ANode, 'cbsUnChecked')
                 else:
-                    _set_children_check_state(ANode, 'cbsUnChecked')
-            else:
-                # Child node: update parent
-                _update_parent_check_state(ANode)
+                    # Child node: update parent
+                    _update_parent_check_state(ANode)
+            finally:
+                self._updating_check = False
 
         self.Button_LoadJSON.OnClick = on_load_json_click
         self.Button_Start.OnClick = on_start_click
