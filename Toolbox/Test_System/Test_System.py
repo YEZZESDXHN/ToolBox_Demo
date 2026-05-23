@@ -175,6 +175,7 @@ class Test_System(frmTSForm):
                 self.log_error("Failed to parse JSON: " + str(e))
                 return False
 
+            node_counter = 0
             for suite in data.get("test_suites", []):
                 suite_node = self.TSTreelist.Add()
                 suite_node.CheckGroupType = 'ncgCheckGroup'
@@ -188,12 +189,13 @@ class Test_System(frmTSForm):
                     child_node.SetValue(1, "Not Run")
                     child_node.CheckState = 'cbsUnChecked'
 
-                    # Store function mapping using node index
+                    # Store function mapping using counter as key
                     lib_name = case.get("library", "")
                     func_name = case.get("function", "")
-                    self._node_func_map[child_node.Index] = (lib_name, func_name)
+                    self._node_func_map[node_counter] = (lib_name, func_name)
 
                     self._leaf_nodes.append(child_node)
+                    node_counter += 1
 
             self.TSTreelist.FullExpand()
             self.log_ok("Loaded " + str(len(self._leaf_nodes)) + " test cases from JSON")
@@ -227,16 +229,16 @@ class Test_System(frmTSForm):
             for i, node in enumerate(checked_cases):
                 case_name = node.GetValue(0)
 
-                # Get library and function from node_func_map
-                node_key = node.Index
-                lib_name, func_name = self._node_func_map.get(node_key, ("", ""))
+                # Get library and function from node_func_map using leaf_nodes index
+                node_idx = self._leaf_nodes.index(node) if node in self._leaf_nodes else -1
+                lib_name, func_name = self._node_func_map.get(node_idx, ("", ""))
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
                 _set_node_result(node, "Running")
 
                 if not lib_name or not func_name:
                     _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name + " (index: " + str(node_key) + ")")
+                    self.log_error("  No function mapped for: " + case_name + " (leaf_idx: " + str(node_idx) + ")")
                     self.log_error("  Available mappings: " + str(list(self._node_func_map.keys())))
                     no_case += 1
                     continue
