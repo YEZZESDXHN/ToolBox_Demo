@@ -1,4 +1,5 @@
-﻿from time import sleep
+﻿import sys
+from time import sleep
 
 from TSMaster import *
 # if app.is_tsmaster_host(): # only vaid in TSMaster App
@@ -20,7 +21,7 @@ for mod in blacklist:
 
 print("test system")
 sleep(3)
-lib_demo.lib_test_1(10, 20)
+# lib_demo.lib_test_1(10, 20)
 print("test system test")
 
 
@@ -82,7 +83,7 @@ class Test_System(frmTSForm):
             self.Button_Start.CustomHint = app.ui_get_default_ballon_hint()
             self.Button_Start.Caption = "开始"
             self.Button_Start.Images = app.get_system_imagelist_16px()
-            self.Button_Start.TabOrder = 9
+            self.Button_Start.TabOrder = 1
             # Create control: Button_LoadJSON = Button(self)
             self.Button_LoadJSON = Button(self)
             self.Button_LoadJSON.Name = "Button_LoadJSON"
@@ -96,7 +97,7 @@ class Test_System(frmTSForm):
             self.Button_LoadJSON.CustomHint = app.ui_get_default_ballon_hint()
             self.Button_LoadJSON.Caption = "加载JSON"
             self.Button_LoadJSON.Images = app.get_system_imagelist_16px()
-            self.Button_LoadJSON.TabOrder = 10
+            self.Button_LoadJSON.TabOrder = 2
             # Create control: Edit_JSONPath = Edit(self)
             self.Edit_JSONPath = Edit(self)
             self.Edit_JSONPath.Name = "Edit_JSONPath"
@@ -106,7 +107,7 @@ class Test_System(frmTSForm):
             self.Edit_JSONPath.Width = 515
             self.Edit_JSONPath.Height = 23
             self.Edit_JSONPath.Cursor = crArrow
-            self.Edit_JSONPath.TabOrder = 11
+            self.Edit_JSONPath.TabOrder = 3
             self.Edit_JSONPath.TextHint = "请输入JSON文件路径"
         finally:
             # End UI auto creation
@@ -210,7 +211,9 @@ class Test_System(frmTSForm):
 
             checked_cases = []
             for node in self._leaf_nodes:
-                if node.CheckState == 'cbsChecked':
+                # CheckState can be string or int: 1 or 'cbsChecked' means checked
+                is_checked = (node.CheckState == 1) or (node.CheckState == 'cbsChecked')
+                if is_checked:
                     checked_cases.append(node)
 
             if not checked_cases:
@@ -286,7 +289,9 @@ class Test_System(frmTSForm):
             any_checked = False
             for leaf in self._leaf_nodes:
                 if leaf.Parent == parent:
-                    if leaf.CheckState == 'cbsChecked':
+                    # CheckState can be string or int: 1 or 'cbsChecked' means checked
+                    is_checked = (leaf.CheckState == 1) or (leaf.CheckState == 'cbsChecked')
+                    if is_checked:
                         any_checked = True
                     else:
                         all_checked = False
@@ -324,11 +329,11 @@ class Test_System(frmTSForm):
                 return
             self._updating_check = True
             try:
-                node_name = ANode.GetValue(0) if ANode.GetValue(0) else "Unknown"
-                self.log("Check changed: " + node_name + " -> " + str(AState))
+                # AState: 0=unchecked, 1=checked, 2=grayed
+                is_checked = (AState == 1) or (AState == 'cbsChecked')
                 if ANode.Level == 0:
                     # Parent node: sync all children
-                    if AState == 'cbsChecked':
+                    if is_checked:
                         _set_children_check_state(ANode, 'cbsChecked')
                     else:
                         _set_children_check_state(ANode, 'cbsUnChecked')
