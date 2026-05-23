@@ -237,13 +237,11 @@ class Test_System(frmTSForm):
                 return
 
             self._is_running = True
-            for case_name, lib, func_name in checked:
-                node = _find_case_by_name(case_name)
-                if node is not None:
-                    _set_result(node, 'Running')
 
             def run_tests():
                 for case_name, lib, func_name in checked:
+                    self._result_queue.put((case_name, 'Running'))
+                    self.FNeedRefresh = True
                     try:
                         mod = importlib.import_module(f'TSMaster.{lib}')
                         func = getattr(mod, func_name)
