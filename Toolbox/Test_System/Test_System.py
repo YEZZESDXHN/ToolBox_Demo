@@ -120,6 +120,7 @@ class Test_System(frmTSForm):
         self._leaf_nodes = []       # list of leaf nodes for traversal
         self._is_running = False    # guard against double-click during test
         self._available_funcs = {}  # function_name -> (module, func_obj)
+        self._node_func_map = {}    # node_id -> function_name
 
         # --- Initialize available functions from imported libraries ---
         def _init_available_funcs():
@@ -176,6 +177,7 @@ class Test_System(frmTSForm):
             """Load JSON file and populate TSTreelist"""
             # Clear existing state
             self._leaf_nodes.clear()
+            self._node_func_map.clear()
 
             if not os.path.exists(json_path):
                 self.log_error("JSON file not found: " + json_path)
@@ -199,6 +201,10 @@ class Test_System(frmTSForm):
                     child_node.CheckGroupType = 'ncgCheckGroup'
                     child_node.SetValue(0, case.get("case_name", "Unnamed Case"))
                     child_node.SetValue(1, "Not Run")
+
+                    # Store function mapping using node id
+                    func_name = case.get("function", "")
+                    self._node_func_map[id(child_node)] = func_name
 
                     self._leaf_nodes.append(child_node)
 
@@ -231,29 +237,16 @@ class Test_System(frmTSForm):
 
             for i, node in enumerate(checked_cases):
                 case_name = node.GetValue(0)
-                func_name = None
 
-                # Extract function name from case_name (assuming format like "xxx-lib_test_x")
-                # Or search by function name in available_funcs
-                for fname in self._available_funcs:
-                    if fname in case_name or case_name.endswith(fname):
-                        func_name = fname
-                        break
-
-                # If not found by name pattern, try to use the case_name directly
-                if func_name is None:
-                    # Try to find function by checking if case_name contains a known function name
-                    for fname in self._available_funcs:
-                        if case_name.find(fname) >= 0:
-                            func_name = fname
-                            break
+                # Get function name from node_func_map
+                func_name = self._node_func_map.get(id(node), "")
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
                 _set_node_result(node, "Running")
 
-                if func_name is None:
+                if not func_name or func_name not in self._available_funcs:
                     _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name)
+                    self.log_error("  No function mapped for: " + case_name + " (func: " + func_name + ")")
                     no_case += 1
                     continue
 
