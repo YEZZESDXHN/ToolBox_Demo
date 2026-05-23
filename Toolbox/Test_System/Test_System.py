@@ -23,10 +23,10 @@ for mod in blacklist:
         tmp_import = __import__ (mod)
         sys.modules[mod] = None
 
-print("test system")
-sleep(3)
+# print("test system")
+# sleep(3)
 # lib_demo.lib_test_1(10, 20)
-print("test system test")
+# print("test system test")
 
 
 
@@ -118,7 +118,6 @@ class Test_System(frmTSForm):
             self.EndUIAutoCreation()
 # Auto Generated Python Code, do not modify END [UI] ----------------
         # your init code starts here...
-        self._case_map = {}
         self._result_queue = queue.Queue()
         self._is_running = False
 
@@ -149,10 +148,10 @@ class Test_System(frmTSForm):
         def _set_result(node, result):
             node.SetValue(1, result)
 
-        def _find_node_by_index(idx):
+        def _find_case_by_index(idx):
             node = self.TSTreelist.TopNode
             while node is not None:
-                if node.Index == idx:
+                if node.Index == idx and not node.HasChildren:
                     return node
                 node = node.GetNext()
             return None
@@ -168,7 +167,7 @@ class Test_System(frmTSForm):
                     node_index, result = self._result_queue.get_nowait()
                 except queue.Empty:
                     break
-                node = _find_node_by_index(node_index)
+                node = _find_case_by_index(node_index)
                 if node is not None:
                     _set_result(node, result)
             self.FNeedRefresh = False
@@ -192,7 +191,6 @@ class Test_System(frmTSForm):
                 return
 
             self.TSTreelist.Clear()
-            self._case_map.clear()
 
             for suite in config.get('test_suites', []):
                 suite_node = self.TSTreelist.Add()
@@ -205,10 +203,8 @@ class Test_System(frmTSForm):
                     case_node.CheckState = 'cbsUnChecked'
                     case_node.SetValue(0, case['case_name'])
                     _set_result(case_node, 'Not Run')
-                    self._case_map[case_node.Index] = {
-                        'library': case['library'],
-                        'function': case['function'],
-                    }
+                    case_node._lib = case['library']
+                    case_node._func = case['function']
 
             self.TSTreelist.FullExpand()
 
@@ -224,9 +220,10 @@ class Test_System(frmTSForm):
             node = self.TSTreelist.TopNode
             while node is not None:
                 if not node.HasChildren and node.CheckState == 'cbsChecked':
-                    info = self._case_map.get(node.Index)
-                    if info is not None:
-                        checked.append((node.Index, info['library'], info['function']))
+                    lib = getattr(node, '_lib', None)
+                    func_name = getattr(node, '_func', None)
+                    if lib is not None and func_name is not None:
+                        checked.append((node.Index, lib, func_name))
                     else:
                         _set_result(node, 'No Case')
                 node = node.GetNext()
@@ -236,7 +233,7 @@ class Test_System(frmTSForm):
 
             self._is_running = True
             for idx, lib, func_name in checked:
-                node = _find_node_by_index(idx)
+                node = _find_case_by_index(idx)
                 if node is not None:
                     _set_result(node, 'Running')
 
