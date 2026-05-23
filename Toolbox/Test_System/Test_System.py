@@ -136,20 +136,16 @@ class Test_System(frmTSForm):
         # Enable check groups for checkboxes
         self.TSTreelist.OptionsView.CheckGroups = True
 
-        # Column 0: Case Name (read-only)
+        # Column 0: Case Name
         self._col_case_name = self.TSTreelist.CreateColumn(None)
         self._col_case_name.Caption.Text = "Case Name"
-        self._col_case_name.PropertiesClassName = 'TcxTextEditProperties'
-        self._col_case_name.Options.Editing = False
         self._col_case_name.Position.ColIndex = 0
         self._col_case_name.Position.RowIndex = 0
         self._col_case_name.Position.BandIndex = 0
 
-        # Column 1: Result (read-only)
+        # Column 1: Result
         self._col_result = self.TSTreelist.CreateColumn(None)
         self._col_result.Caption.Text = "Result"
-        self._col_result.PropertiesClassName = 'TcxTextEditProperties'
-        self._col_result.Options.Editing = False
         self._col_result.Position.ColIndex = 1
         self._col_result.Position.RowIndex = 0
         self._col_result.Position.BandIndex = 0
