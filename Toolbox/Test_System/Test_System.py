@@ -2,6 +2,7 @@
 import json
 import importlib
 from time import sleep
+from threading import Thread
 
 from TSMaster import *
 # if app.is_tsmaster_host(): # only vaid in TSMaster App
@@ -186,26 +187,31 @@ class Test_System(frmTSForm):
 
         # --- Button: Start ---
         def on_start_click(sender):
-            node = self.TSTreelist.TopNode
-            while node is not None:
-                if not node.HasChildren:
-                    if node.CheckState == 'cbsChecked':
-                        info = self._case_map.get(node.Index)
-                        if info is None:
-                            _set_result(node, 'No Case')
-                            node = node.GetNext()
-                            continue
-                        _set_result(node, 'Running')
-                        try:
-                            mod = importlib.import_module(f'TSMaster.{info["library"]}')
-                            func = getattr(mod, info['function'])
-                            func()
-                            _set_result(node, 'Passed')
-                        except (ModuleNotFoundError, AttributeError):
-                            _set_result(node, 'No Case')
-                        except Exception:
-                            _set_result(node, 'Failed')
-                node = node.GetNext()
+            def run_tests():
+                node = self.TSTreelist.TopNode
+                while node is not None:
+                    if not node.HasChildren:
+                        if node.CheckState == 'cbsChecked':
+                            info = self._case_map.get(node.Index)
+                            if info is None:
+                                _set_result(node, 'No Case')
+                                node = node.GetNext()
+                                continue
+                            _set_result(node, 'Running')
+                            try:
+                                mod = importlib.import_module(f'TSMaster.{info["library"]}')
+                                func = getattr(mod, info['function'])
+                                func()
+                                _set_result(node, 'Passed')
+                            except (ModuleNotFoundError, AttributeError):
+                                _set_result(node, 'No Case')
+                            except Exception:
+                                _set_result(node, 'Failed')
+                    node = node.GetNext()
+
+            thread = Thread(target=run_tests)
+            thread.setDaemon(True)
+            thread.start()
 
         self.Button_Start.OnClick = on_start_click
 
