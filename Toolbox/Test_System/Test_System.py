@@ -119,29 +119,16 @@ class Test_System(frmTSForm):
         # --- Data structures ---
         self._leaf_nodes = []       # list of leaf nodes for traversal
         self._is_running = False    # guard against double-click during test
-        self._available_funcs = {}  # function_name -> (module, func_obj)
-        self._node_func_map = {}    # node_id -> function_name
+        self._loaded_modules = {}   # module_name -> module_object
+        self._node_func_map = {}    # node_id -> (library, function)
 
-        # --- Initialize available functions from imported libraries ---
-        def _init_available_funcs():
-            """Collect all available functions from all imported modules"""
-            # Scan all loaded modules for lib_test_* functions
-            for lib_name, module in sys.modules.items():
-                if module is None:
-                    continue
-                # Look for functions starting with lib_test_
-                try:
-                    for attr_name in dir(module):
-                        if attr_name.startswith("lib_test_"):
-                            try:
-                                attr = getattr(module, attr_name, None)
-                                if attr and callable(attr):
-                                    self._available_funcs[attr_name] = (lib_name, attr)
-                            except:
-                                pass
-                except:
-                    pass  # Skip modules that cause errors
-            self.log("Initialized " + str(len(self._available_funcs)) + " test functions")
+        # --- Initialize available modules ---
+        def _init_loaded_modules():
+            """Discover all loaded modules"""
+            for module_name, module in sys.modules.items():
+                if module is not None:
+                    self._loaded_modules[module_name] = module
+            self.log("Discovered " + str(len(self._loaded_modules)) + " loaded modules")
 
         # --- Column setup ---
         # Enable check groups for checkboxes
@@ -203,8 +190,9 @@ class Test_System(frmTSForm):
                     child_node.SetValue(1, "Not Run")
 
                     # Store function mapping using node id
+                    lib_name = case.get("library", "")
                     func_name = case.get("function", "")
-                    self._node_func_map[id(child_node)] = func_name
+                    self._node_func_map[id(child_node)] = (lib_name, func_name)
 
                     self._leaf_nodes.append(child_node)
 
@@ -238,19 +226,41 @@ class Test_System(frmTSForm):
             for i, node in enumerate(checked_cases):
                 case_name = node.GetValue(0)
 
-                # Get function name from node_func_map
-                func_name = self._node_func_map.get(id(node), "")
+                # Get library and function from node_func_map
+                lib_name, func_name = self._node_func_map.get(id(node), ("", ""))
 
                 self.log("[" + str(i+1) + "/" + str(total) + "] Running: " + case_name)
                 _set_node_result(node, "Running")
 
-                if not func_name or func_name not in self._available_funcs:
+                if not lib_name or not func_name:
                     _set_node_result(node, "No Case")
-                    self.log_error("  No function mapped for: " + case_name + " (func: " + func_name + ")")
+                    self.log_error("  No function mapped for: " + case_name)
                     no_case += 1
                     continue
 
-                lib_name, func = self._available_funcs[func_name]
+                # Find module - try exact match first, then partial match
+                module = self._loaded_modules.get(lib_name)
+                if module is None:
+                    # Try partial match
+                    for mod_name, mod in self._loaded_modules.items():
+                        if lib_name in mod_name or mod_name.endswith("." + lib_name):
+                            module = mod
+                            break
+
+                if module is None:
+                    _set_node_result(node, "No Case")
+                    self.log_error("  Module not found: " + lib_name + " for " + case_name)
+                    no_case += 1
+                    continue
+
+                # Get function from module
+                func = getattr(module, func_name, None)
+                if func is None or not callable(func):
+                    _set_node_result(node, "No Case")
+                    self.log_error("  Function not found: " + func_name + " in " + lib_name)
+                    no_case += 1
+                    continue
+
                 try:
                     func()
                     _set_node_result(node, "Passed")
@@ -322,8 +332,8 @@ class Test_System(frmTSForm):
         self.Button_Start.OnClick = on_start_click
         self.TSTreelist.OnNodeCheckChanged = on_node_check_changed
 
-        # Initialize functions on startup
-        _init_available_funcs()
+        # Initialize modules on startup
+        _init_loaded_modules()
 # Auto Generated Python Code, do not modify START [MAIN] ------------
 if __name__ == "__main__":
     try:

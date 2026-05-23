@@ -3,19 +3,19 @@
     {
       "suite_name": "Demo测试集",
       "cases": [
-        {"case_name": "测试用例1-基本功能验证", "function": "lib_test_1"},
-        {"case_name": "测试用例2-边界条件测试", "function": "lib_test_2"},
-        {"case_name": "测试用例3-异常处理测试", "function": "lib_test_3"},
-        {"case_name": "测试用例4-性能测试", "function": "lib_test_4"}
+        {"case_name": "测试用例1-基本功能验证", "library": "lib_demo", "function": "lib_test_1"},
+        {"case_name": "测试用例2-边界条件测试", "library": "lib_demo", "function": "lib_test_2"},
+        {"case_name": "测试用例3-异常处理测试", "library": "lib_demo", "function": "lib_test_3"},
+        {"case_name": "测试用例4-性能测试", "library": "lib_demo", "function": "lib_test_4"}
       ]
     },
     {
       "suite_name": "Demo2测试集",
       "cases": [
-        {"case_name": "测试用例5-集成测试1", "function": "lib_test_1"},
-        {"case_name": "测试用例6-集成测试2", "function": "lib_test_2"},
-        {"case_name": "测试用例7-集成测试3", "function": "lib_test_3"},
-        {"case_name": "测试用例8-集成测试4", "function": "lib_test_4"}
+        {"case_name": "测试用例5-集成测试1", "library": "lib_demo2", "function": "lib_test_1"},
+        {"case_name": "测试用例6-集成测试2", "library": "lib_demo2", "function": "lib_test_2"},
+        {"case_name": "测试用例7-集成测试3", "library": "lib_demo2", "function": "lib_test_3"},
+        {"case_name": "测试用例8-集成测试4", "library": "lib_demo2", "function": "lib_test_4"}
       ]
     }
   ]
