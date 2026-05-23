@@ -153,10 +153,10 @@ class Test_System(frmTSForm):
             cs = node.CheckState
             return cs == 'cbsChecked' or cs == 1
 
-        def _find_case_by_index(idx):
+        def _find_case_by_name(name):
             node = self.TSTreelist.TopNode
             while node is not None:
-                if node.Index == idx and not node.HasChildren:
+                if not node.HasChildren and node.GetValue(0) == name:
                     return node
                 node = node.GetNext()
             return None
@@ -169,10 +169,10 @@ class Test_System(frmTSForm):
                 return
             while True:
                 try:
-                    node_index, result = self._result_queue.get_nowait()
+                    case_name, result = self._result_queue.get_nowait()
                 except queue.Empty:
                     break
-                node = _find_case_by_index(node_index)
+                node = _find_case_by_name(case_name)
                 if node is not None:
                     _set_result(node, result)
             self.FNeedRefresh = False
@@ -209,7 +209,7 @@ class Test_System(frmTSForm):
                     case_node.CheckState = 'cbsUnChecked'
                     case_node.SetValue(0, case['case_name'])
                     _set_result(case_node, 'Not Run')
-                    self._case_map[case_node.Index] = (case['library'], case['function'])
+                    self._case_map[case['case_name']] = (case['library'], case['function'])
 
             self.TSTreelist.FullExpand()
 
@@ -225,9 +225,10 @@ class Test_System(frmTSForm):
             node = self.TSTreelist.TopNode
             while node is not None:
                 if not node.HasChildren and _is_checked(node):
-                    info = self._case_map.get(node.Index)
+                    case_name = node.GetValue(0)
+                    info = self._case_map.get(case_name)
                     if info is not None:
-                        checked.append((node.Index, info[0], info[1]))
+                        checked.append((case_name, info[0], info[1]))
                     else:
                         _set_result(node, 'No Case')
                 node = node.GetNext()
@@ -236,22 +237,22 @@ class Test_System(frmTSForm):
                 return
 
             self._is_running = True
-            for idx, lib, func_name in checked:
-                node = _find_case_by_index(idx)
+            for case_name, lib, func_name in checked:
+                node = _find_case_by_name(case_name)
                 if node is not None:
                     _set_result(node, 'Running')
 
             def run_tests():
-                for idx, lib, func_name in checked:
+                for case_name, lib, func_name in checked:
                     try:
                         mod = importlib.import_module(f'TSMaster.{lib}')
                         func = getattr(mod, func_name)
                         func()
-                        self._result_queue.put((idx, 'Passed'))
+                        self._result_queue.put((case_name, 'Passed'))
                     except (ModuleNotFoundError, AttributeError):
-                        self._result_queue.put((idx, 'No Case'))
+                        self._result_queue.put((case_name, 'No Case'))
                     except Exception:
-                        self._result_queue.put((idx, 'Failed'))
+                        self._result_queue.put((case_name, 'Failed'))
                     self.FNeedRefresh = True
                 self._is_running = False
 
