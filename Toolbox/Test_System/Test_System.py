@@ -1,35 +1,18 @@
 ﻿import sys
 import json
 import queue
-from time import sleep
-from threading import Thread
+from threading import Event, Thread
 
 from TSMaster import *
 # if app.is_tsmaster_host(): # only vaid in TSMaster App
-#     app.import_mini_program_header("lib_demo2")
-#     globals()["lib_demo2"] = sys.modules.get("lib_demo2")
-#     app.import_mini_program_header("lib_demo")
-#     globals()["lib_demo"] = sys.modules.get("lib_demo")
-
-if app.is_tsmaster_host(): # only vaid in TSMaster App
-    import TSMaster.lib_demo2 as lib_demo2
-    import TSMaster.lib_demo as lib_demo
-    import TSMaster.my_mp as my_mp
-    
-
-
-blacklist = ["tkinter"] # modules such as tkinter will release GIL by itself, which is not allowed in TSMster Toolbox
+#     app.import_mini_program_header("my_mp")
+#     globals()["my_mp"] = sys.modules.get("my_mp")
+# my_mp.my_fun_1()
+blacklist = ["tkinter"]
 for mod in blacklist:
     if sys.modules.get(mod):
-        tmp_import = __import__ (mod)
+        tmp_import = __import__(mod)
         sys.modules[mod] = None
-
-# print("test system")
-# my_mp.my_func_1()
-# print("test system test")
-
-
-
 
 # Auto Generated Python Code, do not modify START [UI] --------------
 class Test_System(frmTSForm):
@@ -113,144 +96,177 @@ class Test_System(frmTSForm):
             self.Edit_JSONPath.Cursor = crArrow
             self.Edit_JSONPath.TabOrder = 3
             self.Edit_JSONPath.TextHint = "请输入JSON文件路径"
+            # Create control: Button_Stop = Button(self)
+            self.Button_Stop = Button(self)
+            self.Button_Stop.Name = "Button_Stop"
+            self.Button_Stop.Parent = self
+            self.Button_Stop.Left = 672
+            self.Button_Stop.Top = 91
+            self.Button_Stop.Width = 75
+            self.Button_Stop.Height = 24
+            self.Button_Stop.Cursor = crArrow
+            self.Button_Stop.CustomHint = app.ui_get_default_ballon_hint()
+            self.Button_Stop.Caption = 'Stop'
+            self.Button_Stop.Images = app.get_system_imagelist_16px()
+            self.Button_Stop.TabOrder = 4
         finally:
             # End UI auto creation
             self.EndUIAutoCreation()
 # Auto Generated Python Code, do not modify END [UI] ----------------
-        # your init code starts here...
         self._case_map = {}
-        self._next_case_id = 0
         self._result_queue = queue.Queue()
         self._is_running = False
+        self.FNeedRefresh = False
 
-        # --- Column 0: Case Name (read-only label) ---
-        self.TSTreelist_Col0 = self.TSTreelist.CreateColumn(None)
-        self.TSTreelist_Col0.PropertiesClassName = 'TcxLabelProperties'
-        self.TSTreelist_Col0.Caption.AlignHorz = "taCenter"
-        self.TSTreelist_Col0.Caption.Text = 'Case Name'
-        self.TSTreelist_Col0.MinWidth = 13
-        self.TSTreelist_Col0.Options.VertSizing = False
-        self.TSTreelist_Col0.Width = 250
-        self.TSTreelist_Col0.Position.ColIndex = 0
-        self.TSTreelist_Col0.Position.RowIndex = 0
-        self.TSTreelist_Col0.Position.BandIndex = 0
+        self._init_treelist()
+        self.Button_LoadJSON.OnClick = self._on_load_json
+        self.Button_Start.OnClick = self._on_start
+        self.Button_Stop.OnClick = self._on_stop
+        self.OnRefreshEvent = self._on_refresh
+        self.OnClose = self._on_close
+        self._stop_event=Event()
+        self._stop_event.clear()
 
-        # --- Column 1: Result (read-only label) ---
-        self.TSTreelist_Col1 = self.TSTreelist.CreateColumn(None)
-        self.TSTreelist_Col1.PropertiesClassName = 'TcxLabelProperties'
-        self.TSTreelist_Col1.Caption.AlignHorz = "taCenter"
-        self.TSTreelist_Col1.Caption.Text = 'Result'
-        self.TSTreelist_Col1.MinWidth = 13
-        self.TSTreelist_Col1.Options.VertSizing = False
-        self.TSTreelist_Col1.Width = 120
-        self.TSTreelist_Col1.Position.ColIndex = 1
-        self.TSTreelist_Col1.Position.RowIndex = 0
-        self.TSTreelist_Col1.Position.BandIndex = 0
 
-        def _set_result(node, result):
-            node.SetValue(1, result)
+    def _on_close(self, sender, action):
+      print("close, action:", action.Value)
+      # action.Value = 1 表示隐藏，2 表示释放
+      if action.Value == 2:
+        self._stop_event.set()
+    #   if self.run_case_thread.is_alive():
+    #       self.run_case_thread.join(timeout=1)
 
-        def _is_checked(node):
-            cs = node.CheckState
-            return cs == 'cbsChecked' or cs == 1
+    # --- Treelist setup ---
+    def _init_treelist(self):
+        col_name = self.TSTreelist.CreateColumn(None)
+        col_name.PropertiesClassName = 'TcxLabelProperties'
+        col_name.Caption.AlignHorz = "taCenter"
+        col_name.Caption.Text = 'Case Name'
+        col_name.MinWidth = 13
+        col_name.Options.VertSizing = False
+        col_name.Width = 250
+        col_name.Position.ColIndex = 0
+        col_name.Position.RowIndex = 0
+        col_name.Position.BandIndex = 0
 
-        # --- UIRefreshEvent: main-thread callback to apply queued results ---
-        self.FNeedRefresh = True
-
-        def _ui_refresh_event():
-            if not self.FNeedRefresh:
-                return
-            while True:
-                try:
-                    case_id, result = self._result_queue.get_nowait()
-                except queue.Empty:
-                    break
-                entry = self._case_map.get(case_id)
-                if entry is not None:
-                    _set_result(entry[2], result)
-            self.FNeedRefresh = False
-
-        self.OnRefreshEvent = _ui_refresh_event
+        col_result = self.TSTreelist.CreateColumn(None)
+        col_result.PropertiesClassName = 'TcxLabelProperties'
+        col_result.Caption.AlignHorz = "taCenter"
+        col_result.Caption.Text = 'Result'
+        col_result.MinWidth = 13
+        col_result.Options.VertSizing = False
+        col_result.Width = 120
+        col_result.Position.ColIndex = 1
+        col_result.Position.RowIndex = 0
+        col_result.Position.BandIndex = 0
 
         self.TSTreelist.OptionsView.CheckGroups = True
         self.TSTreelist.Root.CheckGroupType = 'ncgCheckGroup'
 
-        # --- Button: Load JSON ---
-        def on_load_json_click(sender):
-            json_path = self.Edit_JSONPath.Text.strip()
-            if not json_path:
-                ShowMessage('Please enter JSON file path')
-                return
+    # --- Helpers ---
+    @staticmethod
+    def _is_checked(node):
+        cs = node.CheckState
+        return cs == 'cbsChecked' or cs == 1
+
+    def _on_refresh(self):
+        if not self.FNeedRefresh:
+            return
+        while True:
             try:
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    config = json.load(f)
-            except Exception as e:
-                ShowMessage(f'Failed to load JSON: {e}')
-                return
+                case_id, result = self._result_queue.get_nowait()
+            except queue.Empty:
+                break
+            entry = self._case_map.get(case_id)
+            if entry is not None:
+                entry[2].SetValue(1, result)
+        self.FNeedRefresh = False
 
-            self.TSTreelist.Clear()
-            self._case_map.clear()
-            self._next_case_id = 0
+    def _reset_results(self):
+        for lib, func_name, node in self._case_map.values():
+            node.SetValue(1, 'Not Run')
 
-            for suite in config.get('test_suites', []):
-                suite_node = self.TSTreelist.Add()
-                suite_node.CheckGroupType = 'ncgCheckGroup'
-                suite_node.SetValue(0, suite['suite_name'])
-                suite_node.SetValue(1, '')
+    # --- Load JSON ---
+    def _on_load_json(self, sender):
+        json_path = self.Edit_JSONPath.Text.strip()
+        if not json_path:
+            ShowMessage('Please enter JSON file path')
+            return
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+        except Exception as e:
+            ShowMessage(f'Failed to load JSON: {e}')
+            return
 
-                for case in suite.get('cases', []):
-                    case_node = suite_node.AddChild()
-                    case_node.CheckState = 'cbsUnChecked'
-                    case_node.SetValue(0, case['case_name'])
-                    _set_result(case_node, 'Not Run')
-                    case_id = self._next_case_id
-                    self._next_case_id += 1
-                    self._case_map[case_id] = (case['library'], case['function'], case_node)
+        self.TSTreelist.Clear()
+        self._case_map.clear()
 
-            self.TSTreelist.FullExpand()
+        for suite in config.get('test_suites', []):
+            suite_node = self.TSTreelist.Add()
+            suite_node.CheckGroupType = 'ncgCheckGroup'
+            suite_node.SetValue(0, suite['suite_name'])
+            suite_node.SetValue(1, '')
 
-        self.Button_LoadJSON.OnClick = on_load_json_click
+            for case in suite.get('cases', []):
+                case_node = suite_node.AddChild()
+                case_node.CheckState = 'cbsUnChecked'
+                case_node.SetValue(0, case['case_name'])
+                case_node.SetValue(1, 'Not Run')
+                case_id = case_node.AbsoluteIndex
+                self._case_map[case_id] = (case['library'], case['function'], case_node)
 
-        # --- Button: Start ---
-        def on_start_click(sender):
-            if self._is_running:
-                return
+        self.TSTreelist.FullExpand()
 
-            # Collect checked leaf nodes in main thread (safe VCL access)
-            checked = []
-            for case_id, (lib, func_name, node) in self._case_map.items():
-                if _is_checked(node):
-                    checked.append((case_id, lib, func_name))
+    def _on_stop(self, sender):
+        self._stop_event.set()
 
-            if not checked:
-                return
+    # --- Start tests ---
+    def _on_start(self, sender):
+        if self._is_running:
+            return
 
-            self._is_running = True
+        self._reset_results()
 
-            def run_tests():
-                for case_id, lib, func_name in checked:
-                    self._result_queue.put((case_id, 'Running'))
-                    self.FNeedRefresh = True
-                    try:
-                        mod = sys.modules.get(f'TSMaster.{lib}') or sys.modules.get(lib)
-                        if mod is None:
-                            self._result_queue.put((case_id, 'No Case'))
-                            continue
-                        func = getattr(mod, func_name)
-                        func()
-                        self._result_queue.put((case_id, 'Passed'))
-                    except (ModuleNotFoundError, AttributeError):
+        checked = [
+            (case_id, lib, func_name)
+            for case_id, (lib, func_name, node) in self._case_map.items()
+            if self._is_checked(node)
+        ]
+        if not checked:
+            return
+
+        self._is_running = True
+
+        def run_tests():
+            for case_id, lib, func_name in checked:
+                if self._stop_event.is_set():
+                    self._stop_event.clear()
+                    self._is_running = False
+                    return
+                self._result_queue.put((case_id, 'Running'))
+                self.FNeedRefresh = True
+                try:
+                    print(f"get{lib}")
+                    mod = sys.modules.get(lib)
+                    # sys.modules.get(f'TSMaster.{lib}')
+                    if mod is None:
                         self._result_queue.put((case_id, 'No Case'))
-                    except Exception:
-                        self._result_queue.put((case_id, 'Failed'))
-                    self.FNeedRefresh = True
-                self._is_running = False
+                        continue
+                    func = getattr(mod, func_name)
+                    func()
+                    self._result_queue.put((case_id, 'Passed'))
+                except (ModuleNotFoundError, AttributeError):
+                    self._result_queue.put((case_id, 'No Case'))
+                except Exception:
+                    self._result_queue.put((case_id, 'Failed'))
+                self.FNeedRefresh = True
+            self._is_running = False
+            self._stop_event.clear()
 
-            thread = Thread(target=run_tests)
-            thread.daemon = True
-            thread.start()
-
-        self.Button_Start.OnClick = on_start_click
+        thread = Thread(target=run_tests)
+        thread.daemon = True
+        thread.start()
 
 # Auto Generated Python Code, do not modify START [MAIN] ------------
 if __name__ == "__main__":

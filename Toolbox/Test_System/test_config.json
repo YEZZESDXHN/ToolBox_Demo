@@ -12,10 +12,17 @@
     {
       "suite_name": "Demo2测试集",
       "cases": [
-        {"case_name": "测试用例5-集成测试1", "library": "lib_demo2", "function": "lib_test_1"},
-        {"case_name": "测试用例6-集成测试2", "library": "lib_demo2", "function": "lib_test_2"},
-        {"case_name": "测试用例7-集成测试3", "library": "lib_demo2", "function": "lib_test_3"},
-        {"case_name": "测试用例8-集成测试4", "library": "lib_demo2", "function": "lib_test_4"}
+        {"case_name": "测试用例5-集成测试1", "library": "lib_demo2", "function": "lib2_test_1"},
+        {"case_name": "测试用例6-集成测试2", "library": "lib_demo2", "function": "lib2_test_2"},
+        {"case_name": "测试用例7-集成测试3", "library": "lib_demo2", "function": "lib2_test_3"},
+        {"case_name": "测试用例8-集成测试4", "library": "lib_demo2", "function": "lib2_test_4"}
+      ]
+    },
+    {
+      "suite_name": "Demo3测试集my_mp",
+      "cases": [
+        {"case_name": "测试用例5-集成测试1", "library": "my_mp", "function": "my_func_1"},
+        {"case_name": "测试用例6-集成测试2", "library": "my_mp", "function": "my_func_1"}
       ]
     }
   ]
