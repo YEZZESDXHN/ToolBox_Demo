@@ -1,0 +1,69 @@
+object frmVCLFormDesigner: TfrmVCLFormDesigner
+  Left = 152
+  Top = 152
+  Caption = 
+    #21516#26143#24037#20855#31665#31383#20307#35774#35745#22120' - TSTreelist: TTSTreelist; '#20301#32622' (92, 135, 864, 1095); '#23485 +
+    ': 772, '#39640': 960 [*Test_System.TSUI]'
+  ClientHeight = 813
+  ClientWidth = 1241
+  Color = clBtnFace
+  DoubleBuffered = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesigned
+  Visible = True
+  TextHeight = 15
+  object TSTreelist: TTSTreelist
+    Tag = 8847463
+    Left = 61
+    Top = 90
+    Width = 515
+    Height = 640
+    Cursor = crArrow
+    Images = dmIcons.imgLstSmall
+    Navigator.Buttons.CustomButtons = <>
+    OptionsBehavior.CellHints = True
+    OptionsCustomizing.ColumnVertSizing = False
+    OptionsSelection.MultiSelect = True
+    OptionsView.ColumnAutoWidth = True
+    ScrollbarAnnotations.CustomAnnotations = <>
+    TabOrder = 0
+  end
+  object Button_Start: TButton
+    Tag = 8848236
+    Left = 584
+    Top = 90
+    Width = 75
+    Height = 25
+    Cursor = crArrow
+    CustomHint = dmIcons.bHint
+    Caption = #24320#22987
+    Images = dmIcons.imgLstSmall
+    TabOrder = 9
+  end
+  object Button_LoadJSON: TButton
+    Tag = 4850540
+    Left = 584
+    Top = 49
+    Width = 75
+    Height = 25
+    Cursor = crArrow
+    CustomHint = dmIcons.bHint
+    Caption = #21152#36733'JSON'
+    Images = dmIcons.imgLstSmall
+    TabOrder = 10
+  end
+  object Edit_JSONPath: TEdit
+    Left = 61
+    Top = 51
+    Width = 515
+    Height = 23
+    Cursor = crArrow
+    TabOrder = 11
+    TextHint = #35831#36755#20837'JSON'#25991#20214#36335#24452
+  end
+end

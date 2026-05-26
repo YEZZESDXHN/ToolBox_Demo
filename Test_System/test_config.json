@@ -1,0 +1,13 @@
+{
+  "test_suites": [
+    {
+      "suite_name": "Demo测试集",
+      "cases": [
+        {"case_name": "test_report_init", "library": "ts_lib", "function": "test_report_init"},
+        {"case_name": "Demo_TestCase_TerminalResistor", "library": "ts_lib", "function": "Demo_TestCase_TerminalResistor"},
+        {"case_name": "test_1001", "library": "ts_lib", "function": "test_1001"},
+        {"case_name": "test_final", "library": "ts_lib", "function": "test_final"}
+      ]
+    }
+  ]
+}
